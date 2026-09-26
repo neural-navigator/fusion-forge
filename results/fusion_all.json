@@ -1,0 +1,3423 @@
+{
+  "datasets": {
+    "nfcorpus": {
+      "dataset": "nfcorpus",
+      "collection": "beir_nfcorpus_hyb",
+      "protocol": "official_train_test",
+      "n_tune": 2590,
+      "n_test": 323,
+      "tune_top": [
+        {
+          "name": "minmax_linear(a=0.7)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.7
+          },
+          "tune_ndcg@10": 0.3708
+        },
+        {
+          "name": "rank_score(a=0.7,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.7,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.3708
+        },
+        {
+          "name": "minmax_linear(a=0.8)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.8
+          },
+          "tune_ndcg@10": 0.3702
+        },
+        {
+          "name": "rank_score(a=0.8,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.8,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.3702
+        },
+        {
+          "name": "minmax_linear(a=0.9)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.9
+          },
+          "tune_ndcg@10": 0.369
+        },
+        {
+          "name": "rank_score(a=0.9,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.9,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.3689
+        },
+        {
+          "name": "minmax_linear(a=0.6)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.6
+          },
+          "tune_ndcg@10": 0.3683
+        },
+        {
+          "name": "rank_score(a=0.6,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.6,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.3683
+        }
+      ],
+      "winner": {
+        "name": "minmax_linear(a=0.7)",
+        "kind": "minmax_linear",
+        "params": {
+          "a": 0.7
+        },
+        "tune_ndcg@10": 0.3708
+      },
+      "test": {
+        "dense": {
+          "ndcg@10": 0.3733,
+          "ndcg@100": 0.3477,
+          "recall@10": 0.1784,
+          "recall@100": 0.3398,
+          "mrr@10": 0.5641,
+          "map@100": 0.1819
+        },
+        "bm42": {
+          "ndcg@10": 0.3255,
+          "ndcg@100": 0.3032,
+          "recall@10": 0.1594,
+          "recall@100": 0.2974,
+          "mrr@10": 0.5287,
+          "map@100": 0.1577
+        },
+        "rrf_equal": {
+          "ndcg@10": 0.3638,
+          "ndcg@100": 0.3408,
+          "recall@10": 0.1764,
+          "recall@100": 0.3294,
+          "mrr@10": 0.5706,
+          "map@100": 0.1762
+        },
+        "tuned": {
+          "ndcg@10": 0.3792,
+          "ndcg@100": 0.3513,
+          "recall@10": 0.1849,
+          "recall@100": 0.3374,
+          "mrr@10": 0.5772,
+          "map@100": 0.1849
+        }
+      },
+      "alpha_curve_minmax": [
+        {
+          "a": 0.0,
+          "ndcg@10": 0.3242
+        },
+        {
+          "a": 0.1,
+          "ndcg@10": 0.3347
+        },
+        {
+          "a": 0.2,
+          "ndcg@10": 0.3466
+        },
+        {
+          "a": 0.3,
+          "ndcg@10": 0.356
+        },
+        {
+          "a": 0.4,
+          "ndcg@10": 0.3623
+        },
+        {
+          "a": 0.5,
+          "ndcg@10": 0.3722
+        },
+        {
+          "a": 0.6,
+          "ndcg@10": 0.3757
+        },
+        {
+          "a": 0.7,
+          "ndcg@10": 0.3792
+        },
+        {
+          "a": 0.8,
+          "ndcg@10": 0.379
+        },
+        {
+          "a": 0.9,
+          "ndcg@10": 0.3777
+        },
+        {
+          "a": 1.0,
+          "ndcg@10": 0.3733
+        }
+      ],
+      "oracle_minmax_alpha_ndcg@10": 0.412,
+      "beats_dense": true,
+      "beats_rrf": true,
+      "seconds": 64.7
+    },
+    "scifact": {
+      "dataset": "scifact",
+      "collection": "beir_scifact_hyb",
+      "protocol": "official_train_test",
+      "n_tune": 809,
+      "n_test": 300,
+      "tune_top": [
+        {
+          "name": "minmax_linear(a=0.8)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.8
+          },
+          "tune_ndcg@10": 0.779
+        },
+        {
+          "name": "rank_score(a=0.8,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.8,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.779
+        },
+        {
+          "name": "minmax_linear(a=0.9)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.9
+          },
+          "tune_ndcg@10": 0.7753
+        },
+        {
+          "name": "rank_score(a=0.9,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.9,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.7751
+        },
+        {
+          "name": "minmax_linear(a=0.7)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.7
+          },
+          "tune_ndcg@10": 0.7728
+        },
+        {
+          "name": "rank_score(a=0.7,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.7,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.7728
+        },
+        {
+          "name": "dense",
+          "kind": "dense",
+          "params": {},
+          "tune_ndcg@10": 0.771
+        },
+        {
+          "name": "minmax_linear(a=1.0)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 1.0
+          },
+          "tune_ndcg@10": 0.771
+        }
+      ],
+      "winner": {
+        "name": "minmax_linear(a=0.8)",
+        "kind": "minmax_linear",
+        "params": {
+          "a": 0.8
+        },
+        "tune_ndcg@10": 0.779
+      },
+      "test": {
+        "dense": {
+          "ndcg@10": 0.7421,
+          "ndcg@100": 0.7625,
+          "recall@10": 0.8709,
+          "recall@100": 0.961,
+          "mrr@10": 0.7069,
+          "map@100": 0.7009
+        },
+        "bm42": {
+          "ndcg@10": 0.6118,
+          "ndcg@100": 0.6412,
+          "recall@10": 0.7411,
+          "recall@100": 0.8777,
+          "mrr@10": 0.5767,
+          "map@100": 0.5718
+        },
+        "rrf_equal": {
+          "ndcg@10": 0.7068,
+          "ndcg@100": 0.7333,
+          "recall@10": 0.8527,
+          "recall@100": 0.9627,
+          "mrr@10": 0.6698,
+          "map@100": 0.6624
+        },
+        "tuned": {
+          "ndcg@10": 0.7526,
+          "ndcg@100": 0.77,
+          "recall@10": 0.8892,
+          "recall@100": 0.9693,
+          "mrr@10": 0.7162,
+          "map@100": 0.7079
+        }
+      },
+      "alpha_curve_minmax": [
+        {
+          "a": 0.0,
+          "ndcg@10": 0.6118
+        },
+        {
+          "a": 0.1,
+          "ndcg@10": 0.6359
+        },
+        {
+          "a": 0.2,
+          "ndcg@10": 0.6589
+        },
+        {
+          "a": 0.3,
+          "ndcg@10": 0.6819
+        },
+        {
+          "a": 0.4,
+          "ndcg@10": 0.702
+        },
+        {
+          "a": 0.5,
+          "ndcg@10": 0.7275
+        },
+        {
+          "a": 0.6,
+          "ndcg@10": 0.7359
+        },
+        {
+          "a": 0.7,
+          "ndcg@10": 0.7497
+        },
+        {
+          "a": 0.8,
+          "ndcg@10": 0.7526
+        },
+        {
+          "a": 0.9,
+          "ndcg@10": 0.7467
+        },
+        {
+          "a": 1.0,
+          "ndcg@10": 0.7421
+        }
+      ],
+      "oracle_minmax_alpha_ndcg@10": 0.803,
+      "beats_dense": true,
+      "beats_rrf": true,
+      "seconds": 28.3
+    },
+    "arguana": {
+      "dataset": "arguana",
+      "collection": "beir_arguana_hyb",
+      "protocol": "heldout_test_seed42_tune0.7",
+      "n_tune": 984,
+      "n_test": 422,
+      "tune_top": [
+        {
+          "name": "minmax_linear(a=0.8)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.8
+          },
+          "tune_ndcg@10": 0.6481
+        },
+        {
+          "name": "rank_score(a=0.8,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.8,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.6474
+        },
+        {
+          "name": "rank_score(a=0.7,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.7,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.6428
+        },
+        {
+          "name": "minmax_linear(a=0.7)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.7
+          },
+          "tune_ndcg@10": 0.6424
+        },
+        {
+          "name": "rank_score(a=0.9,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.9,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.6408
+        },
+        {
+          "name": "minmax_linear(a=0.9)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.9
+          },
+          "tune_ndcg@10": 0.6402
+        },
+        {
+          "name": "minmax_linear(a=0.6)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.6
+          },
+          "tune_ndcg@10": 0.6355
+        },
+        {
+          "name": "rank_score(a=0.6,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.6,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.6348
+        }
+      ],
+      "winner": {
+        "name": "minmax_linear(a=0.8)",
+        "kind": "minmax_linear",
+        "params": {
+          "a": 0.8
+        },
+        "tune_ndcg@10": 0.6481
+      },
+      "test": {
+        "dense": {
+          "ndcg@10": 0.6235,
+          "ndcg@100": 0.6464,
+          "recall@10": 0.891,
+          "recall@100": 0.9905,
+          "mrr@10": 0.5386,
+          "map@100": 0.5441
+        },
+        "bm42": {
+          "ndcg@10": 0.4498,
+          "ndcg@100": 0.5041,
+          "recall@10": 0.7038,
+          "recall@100": 0.9455,
+          "mrr@10": 0.3712,
+          "map@100": 0.3836
+        },
+        "rrf_equal": {
+          "ndcg@10": 0.5935,
+          "ndcg@100": 0.6244,
+          "recall@10": 0.8602,
+          "recall@100": 0.9882,
+          "mrr@10": 0.5089,
+          "map@100": 0.5168
+        },
+        "tuned": {
+          "ndcg@10": 0.634,
+          "ndcg@100": 0.659,
+          "recall@10": 0.8863,
+          "recall@100": 0.9905,
+          "mrr@10": 0.5529,
+          "map@100": 0.5594
+        }
+      },
+      "alpha_curve_minmax": [
+        {
+          "a": 0.0,
+          "ndcg@10": 0.4498
+        },
+        {
+          "a": 0.1,
+          "ndcg@10": 0.4855
+        },
+        {
+          "a": 0.2,
+          "ndcg@10": 0.5221
+        },
+        {
+          "a": 0.3,
+          "ndcg@10": 0.5607
+        },
+        {
+          "a": 0.4,
+          "ndcg@10": 0.5963
+        },
+        {
+          "a": 0.5,
+          "ndcg@10": 0.6239
+        },
+        {
+          "a": 0.6,
+          "ndcg@10": 0.6392
+        },
+        {
+          "a": 0.7,
+          "ndcg@10": 0.6406
+        },
+        {
+          "a": 0.8,
+          "ndcg@10": 0.634
+        },
+        {
+          "a": 0.9,
+          "ndcg@10": 0.6306
+        },
+        {
+          "a": 1.0,
+          "ndcg@10": 0.6235
+        }
+      ],
+      "oracle_minmax_alpha_ndcg@10": 0.7195,
+      "beats_dense": true,
+      "beats_rrf": true,
+      "seconds": 59.5
+    },
+    "fiqa": {
+      "dataset": "fiqa",
+      "collection": "beir_fiqa_hyb",
+      "protocol": "official_train_test",
+      "n_tune": 5500,
+      "n_test": 648,
+      "tune_top": [
+        {
+          "name": "minmax_linear(a=0.8)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.8
+          },
+          "tune_ndcg@10": 0.4284
+        },
+        {
+          "name": "rank_score(a=0.8,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.8,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.4283
+        },
+        {
+          "name": "minmax_linear(a=0.9)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.9
+          },
+          "tune_ndcg@10": 0.4282
+        },
+        {
+          "name": "rank_score(a=0.9,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.9,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.4282
+        },
+        {
+          "name": "dense",
+          "kind": "dense",
+          "params": {},
+          "tune_ndcg@10": 0.4254
+        },
+        {
+          "name": "minmax_linear(a=1.0)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 1.0
+          },
+          "tune_ndcg@10": 0.4254
+        },
+        {
+          "name": "minmax_linear(a=0.7)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.7
+          },
+          "tune_ndcg@10": 0.4249
+        },
+        {
+          "name": "rank_score(a=0.7,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.7,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.4249
+        }
+      ],
+      "winner": {
+        "name": "minmax_linear(a=0.8)",
+        "kind": "minmax_linear",
+        "params": {
+          "a": 0.8
+        },
+        "tune_ndcg@10": 0.4284
+      },
+      "test": {
+        "dense": {
+          "ndcg@10": 0.3989,
+          "ndcg@100": 0.4672,
+          "recall@10": 0.474,
+          "recall@100": 0.7253,
+          "mrr@10": 0.4773,
+          "map@100": 0.3383
+        },
+        "bm42": {
+          "ndcg@10": 0.2236,
+          "ndcg@100": 0.2809,
+          "recall@10": 0.2744,
+          "recall@100": 0.4958,
+          "mrr@10": 0.2806,
+          "map@100": 0.1817
+        },
+        "rrf_equal": {
+          "ndcg@10": 0.3479,
+          "ndcg@100": 0.4214,
+          "recall@10": 0.432,
+          "recall@100": 0.703,
+          "mrr@10": 0.4166,
+          "map@100": 0.2876
+        },
+        "tuned": {
+          "ndcg@10": 0.4073,
+          "ndcg@100": 0.4733,
+          "recall@10": 0.4794,
+          "recall@100": 0.7226,
+          "mrr@10": 0.4894,
+          "map@100": 0.3458
+        }
+      },
+      "alpha_curve_minmax": [
+        {
+          "a": 0.0,
+          "ndcg@10": 0.2236
+        },
+        {
+          "a": 0.1,
+          "ndcg@10": 0.2483
+        },
+        {
+          "a": 0.2,
+          "ndcg@10": 0.27
+        },
+        {
+          "a": 0.3,
+          "ndcg@10": 0.2984
+        },
+        {
+          "a": 0.4,
+          "ndcg@10": 0.3311
+        },
+        {
+          "a": 0.5,
+          "ndcg@10": 0.3736
+        },
+        {
+          "a": 0.6,
+          "ndcg@10": 0.3977
+        },
+        {
+          "a": 0.7,
+          "ndcg@10": 0.4059
+        },
+        {
+          "a": 0.8,
+          "ndcg@10": 0.4073
+        },
+        {
+          "a": 0.9,
+          "ndcg@10": 0.4045
+        },
+        {
+          "a": 1.0,
+          "ndcg@10": 0.3989
+        }
+      ],
+      "oracle_minmax_alpha_ndcg@10": 0.4605,
+      "beats_dense": true,
+      "beats_rrf": true,
+      "seconds": 103.9
+    },
+    "scidocs": {
+      "dataset": "scidocs",
+      "collection": "beir_scidocs_hyb",
+      "protocol": "heldout_test_seed42_tune0.7",
+      "n_tune": 700,
+      "n_test": 300,
+      "tune_top": [
+        {
+          "name": "minmax_linear(a=0.7)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.7
+          },
+          "tune_ndcg@10": 0.2223
+        },
+        {
+          "name": "rank_score(a=0.8,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.8,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.2223
+        },
+        {
+          "name": "minmax_linear(a=0.8)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.8
+          },
+          "tune_ndcg@10": 0.2222
+        },
+        {
+          "name": "rank_score(a=0.7,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.7,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.2221
+        },
+        {
+          "name": "minmax_linear(a=0.9)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.9
+          },
+          "tune_ndcg@10": 0.2204
+        },
+        {
+          "name": "rank_score(a=0.9,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.9,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.2203
+        },
+        {
+          "name": "rank_score(a=0.6,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.6,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.2198
+        },
+        {
+          "name": "minmax_linear(a=0.6)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.6
+          },
+          "tune_ndcg@10": 0.2197
+        }
+      ],
+      "winner": {
+        "name": "minmax_linear(a=0.7)",
+        "kind": "minmax_linear",
+        "params": {
+          "a": 0.7
+        },
+        "tune_ndcg@10": 0.2223
+      },
+      "test": {
+        "dense": {
+          "ndcg@10": 0.2194,
+          "ndcg@100": 0.3062,
+          "recall@10": 0.2297,
+          "recall@100": 0.4888,
+          "mrr@10": 0.3675,
+          "map@100": 0.1537
+        },
+        "bm42": {
+          "ndcg@10": 0.136,
+          "ndcg@100": 0.2071,
+          "recall@10": 0.1438,
+          "recall@100": 0.355,
+          "mrr@10": 0.2263,
+          "map@100": 0.0957
+        },
+        "rrf_equal": {
+          "ndcg@10": 0.1939,
+          "ndcg@100": 0.2842,
+          "recall@10": 0.2045,
+          "recall@100": 0.468,
+          "mrr@10": 0.3249,
+          "map@100": 0.1384
+        },
+        "tuned": {
+          "ndcg@10": 0.2172,
+          "ndcg@100": 0.3051,
+          "recall@10": 0.2248,
+          "recall@100": 0.4815,
+          "mrr@10": 0.3661,
+          "map@100": 0.1546
+        }
+      },
+      "alpha_curve_minmax": [
+        {
+          "a": 0.0,
+          "ndcg@10": 0.136
+        },
+        {
+          "a": 0.1,
+          "ndcg@10": 0.1479
+        },
+        {
+          "a": 0.2,
+          "ndcg@10": 0.1586
+        },
+        {
+          "a": 0.3,
+          "ndcg@10": 0.1685
+        },
+        {
+          "a": 0.4,
+          "ndcg@10": 0.1836
+        },
+        {
+          "a": 0.5,
+          "ndcg@10": 0.1987
+        },
+        {
+          "a": 0.6,
+          "ndcg@10": 0.211
+        },
+        {
+          "a": 0.7,
+          "ndcg@10": 0.2172
+        },
+        {
+          "a": 0.8,
+          "ndcg@10": 0.2175
+        },
+        {
+          "a": 0.9,
+          "ndcg@10": 0.2197
+        },
+        {
+          "a": 1.0,
+          "ndcg@10": 0.2194
+        }
+      ],
+      "oracle_minmax_alpha_ndcg@10": 0.2549,
+      "beats_dense": false,
+      "beats_rrf": true,
+      "seconds": 19.1
+    },
+    "trec-covid": {
+      "dataset": "trec-covid",
+      "collection": "beir_trec_covid_hyb",
+      "protocol": "heldout_test_seed42_tune0.7",
+      "n_tune": 35,
+      "n_test": 15,
+      "tune_top": [
+        {
+          "name": "rank_score(a=0.8,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.8,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.8046
+        },
+        {
+          "name": "minmax_linear(a=0.9)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.9
+          },
+          "tune_ndcg@10": 0.8041
+        },
+        {
+          "name": "rank_score(a=0.9,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.9,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.8041
+        },
+        {
+          "name": "dense",
+          "kind": "dense",
+          "params": {},
+          "tune_ndcg@10": 0.8037
+        },
+        {
+          "name": "minmax_linear(a=1.0)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 1.0
+          },
+          "tune_ndcg@10": 0.8037
+        },
+        {
+          "name": "minmax_linear(a=0.8)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.8
+          },
+          "tune_ndcg@10": 0.803
+        },
+        {
+          "name": "minmax_linear(a=0.7)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.7
+          },
+          "tune_ndcg@10": 0.7965
+        },
+        {
+          "name": "rank_score(a=0.7,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.7,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.7965
+        }
+      ],
+      "winner": {
+        "name": "rank_score(a=0.8,mix=0.75,kappa=20)",
+        "kind": "rank_score",
+        "params": {
+          "a": 0.8,
+          "mix": 0.75,
+          "kappa": 20
+        },
+        "tune_ndcg@10": 0.8046
+      },
+      "test": {
+        "dense": {
+          "ndcg@10": 0.6562,
+          "ndcg@100": 0.4937,
+          "recall@10": 0.0195,
+          "recall@100": 0.129,
+          "mrr@10": 0.85,
+          "map@100": 0.0911
+        },
+        "bm42": {
+          "ndcg@10": 0.4133,
+          "ndcg@100": 0.3025,
+          "recall@10": 0.0129,
+          "recall@100": 0.0853,
+          "mrr@10": 0.7778,
+          "map@100": 0.0502
+        },
+        "rrf_equal": {
+          "ndcg@10": 0.6153,
+          "ndcg@100": 0.4501,
+          "recall@10": 0.0187,
+          "recall@100": 0.1247,
+          "mrr@10": 0.9333,
+          "map@100": 0.0828
+        },
+        "tuned": {
+          "ndcg@10": 0.6569,
+          "ndcg@100": 0.4876,
+          "recall@10": 0.0205,
+          "recall@100": 0.1311,
+          "mrr@10": 0.8467,
+          "map@100": 0.093
+        }
+      },
+      "alpha_curve_minmax": [
+        {
+          "a": 0.0,
+          "ndcg@10": 0.4133
+        },
+        {
+          "a": 0.1,
+          "ndcg@10": 0.4306
+        },
+        {
+          "a": 0.2,
+          "ndcg@10": 0.4553
+        },
+        {
+          "a": 0.3,
+          "ndcg@10": 0.4945
+        },
+        {
+          "a": 0.4,
+          "ndcg@10": 0.5352
+        },
+        {
+          "a": 0.5,
+          "ndcg@10": 0.6253
+        },
+        {
+          "a": 0.6,
+          "ndcg@10": 0.6393
+        },
+        {
+          "a": 0.7,
+          "ndcg@10": 0.6571
+        },
+        {
+          "a": 0.8,
+          "ndcg@10": 0.658
+        },
+        {
+          "a": 0.9,
+          "ndcg@10": 0.661
+        },
+        {
+          "a": 1.0,
+          "ndcg@10": 0.6562
+        }
+      ],
+      "oracle_minmax_alpha_ndcg@10": 0.7092,
+      "beats_dense": true,
+      "beats_rrf": true,
+      "seconds": 5.5
+    },
+    "quora": {
+      "dataset": "quora",
+      "collection": "beir_quora_hyb",
+      "protocol": "official_dev_test",
+      "n_tune": 5000,
+      "n_test": 10000,
+      "tune_top": [
+        {
+          "name": "minmax_linear(a=0.8)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.8
+          },
+          "tune_ndcg@10": 0.891
+        },
+        {
+          "name": "rank_score(a=0.8,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.8,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.8909
+        },
+        {
+          "name": "minmax_linear(a=0.9)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.9
+          },
+          "tune_ndcg@10": 0.8881
+        },
+        {
+          "name": "rank_score(a=0.9,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.9,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.8881
+        },
+        {
+          "name": "rank_score(a=0.7,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.7,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.8874
+        },
+        {
+          "name": "minmax_linear(a=0.7)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.7
+          },
+          "tune_ndcg@10": 0.8873
+        },
+        {
+          "name": "dense",
+          "kind": "dense",
+          "params": {},
+          "tune_ndcg@10": 0.8825
+        },
+        {
+          "name": "minmax_linear(a=1.0)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 1.0
+          },
+          "tune_ndcg@10": 0.8825
+        }
+      ],
+      "winner": {
+        "name": "minmax_linear(a=0.8)",
+        "kind": "minmax_linear",
+        "params": {
+          "a": 0.8
+        },
+        "tune_ndcg@10": 0.891
+      },
+      "test": {
+        "dense": {
+          "ndcg@10": 0.8851,
+          "ndcg@100": 0.8967,
+          "recall@10": 0.9555,
+          "recall@100": 0.994,
+          "mrr@10": 0.8774,
+          "map@100": 0.8541
+        },
+        "bm42": {
+          "ndcg@10": 0.695,
+          "ndcg@100": 0.7278,
+          "recall@10": 0.8202,
+          "recall@100": 0.9508,
+          "mrr@10": 0.6756,
+          "map@100": 0.6493
+        },
+        "rrf_equal": {
+          "ndcg@10": 0.8375,
+          "ndcg@100": 0.855,
+          "recall@10": 0.9356,
+          "recall@100": 0.9957,
+          "mrr@10": 0.8247,
+          "map@100": 0.798
+        },
+        "tuned": {
+          "ndcg@10": 0.8913,
+          "ndcg@100": 0.9025,
+          "recall@10": 0.9586,
+          "recall@100": 0.9966,
+          "mrr@10": 0.8842,
+          "map@100": 0.8613
+        }
+      },
+      "alpha_curve_minmax": [
+        {
+          "a": 0.0,
+          "ndcg@10": 0.695
+        },
+        {
+          "a": 0.1,
+          "ndcg@10": 0.7345
+        },
+        {
+          "a": 0.2,
+          "ndcg@10": 0.7733
+        },
+        {
+          "a": 0.3,
+          "ndcg@10": 0.8083
+        },
+        {
+          "a": 0.4,
+          "ndcg@10": 0.8398
+        },
+        {
+          "a": 0.5,
+          "ndcg@10": 0.8672
+        },
+        {
+          "a": 0.6,
+          "ndcg@10": 0.881
+        },
+        {
+          "a": 0.7,
+          "ndcg@10": 0.889
+        },
+        {
+          "a": 0.8,
+          "ndcg@10": 0.8913
+        },
+        {
+          "a": 0.9,
+          "ndcg@10": 0.8892
+        },
+        {
+          "a": 1.0,
+          "ndcg@10": 0.8851
+        }
+      ],
+      "oracle_minmax_alpha_ndcg@10": 0.9226,
+      "beats_dense": true,
+      "beats_rrf": true,
+      "seconds": 292.0
+    },
+    "webis-touche2020": {
+      "dataset": "webis-touche2020",
+      "collection": "beir_webis_touche2020_hyb",
+      "protocol": "heldout_test_seed42_tune0.7",
+      "n_tune": 34,
+      "n_test": 15,
+      "tune_top": [
+        {
+          "name": "dense",
+          "kind": "dense",
+          "params": {},
+          "tune_ndcg@10": 0.2284
+        },
+        {
+          "name": "minmax_linear(a=1.0)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 1.0
+          },
+          "tune_ndcg@10": 0.2284
+        },
+        {
+          "name": "minmax_linear(a=0.9)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.9
+          },
+          "tune_ndcg@10": 0.2251
+        },
+        {
+          "name": "rank_score(a=0.9,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.9,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.2251
+        },
+        {
+          "name": "minmax_linear(a=0.8)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.8
+          },
+          "tune_ndcg@10": 0.2173
+        },
+        {
+          "name": "rank_score(a=0.8,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.8,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.2173
+        },
+        {
+          "name": "rank_score(a=0.7,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.7,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.1966
+        },
+        {
+          "name": "minmax_linear(a=0.7)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.7
+          },
+          "tune_ndcg@10": 0.1962
+        }
+      ],
+      "winner": {
+        "name": "dense",
+        "kind": "dense",
+        "params": {},
+        "tune_ndcg@10": 0.2284
+      },
+      "test": {
+        "dense": {
+          "ndcg@10": 0.2891,
+          "ndcg@100": 0.3727,
+          "recall@10": 0.1702,
+          "recall@100": 0.4456,
+          "mrr@10": 0.5984,
+          "map@100": 0.1555
+        },
+        "bm42": {
+          "ndcg@10": 0.0827,
+          "ndcg@100": 0.1739,
+          "recall@10": 0.0566,
+          "recall@100": 0.2595,
+          "mrr@10": 0.159,
+          "map@100": 0.0456
+        },
+        "rrf_equal": {
+          "ndcg@10": 0.1811,
+          "ndcg@100": 0.2782,
+          "recall@10": 0.1371,
+          "recall@100": 0.3964,
+          "mrr@10": 0.3096,
+          "map@100": 0.0997
+        },
+        "tuned": {
+          "ndcg@10": 0.2891,
+          "ndcg@100": 0.3727,
+          "recall@10": 0.1702,
+          "recall@100": 0.4456,
+          "mrr@10": 0.5984,
+          "map@100": 0.1555
+        }
+      },
+      "alpha_curve_minmax": [
+        {
+          "a": 0.0,
+          "ndcg@10": 0.0827
+        },
+        {
+          "a": 0.1,
+          "ndcg@10": 0.0908
+        },
+        {
+          "a": 0.2,
+          "ndcg@10": 0.0932
+        },
+        {
+          "a": 0.3,
+          "ndcg@10": 0.1093
+        },
+        {
+          "a": 0.4,
+          "ndcg@10": 0.1374
+        },
+        {
+          "a": 0.5,
+          "ndcg@10": 0.1751
+        },
+        {
+          "a": 0.6,
+          "ndcg@10": 0.2143
+        },
+        {
+          "a": 0.7,
+          "ndcg@10": 0.251
+        },
+        {
+          "a": 0.8,
+          "ndcg@10": 0.265
+        },
+        {
+          "a": 0.9,
+          "ndcg@10": 0.2802
+        },
+        {
+          "a": 1.0,
+          "ndcg@10": 0.2891
+        }
+      ],
+      "oracle_minmax_alpha_ndcg@10": 0.303,
+      "beats_dense": false,
+      "beats_rrf": true,
+      "seconds": 5.1
+    },
+    "cqadupstack/android": {
+      "dataset": "cqadupstack/android",
+      "collection": "beir_cqadupstack_android_hyb",
+      "protocol": "heldout_test_seed42_tune0.7",
+      "n_tune": 489,
+      "n_test": 210,
+      "tune_top": [
+        {
+          "name": "minmax_linear(a=0.9)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.9
+          },
+          "tune_ndcg@10": 0.5148
+        },
+        {
+          "name": "rank_score(a=0.9,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.9,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.5148
+        },
+        {
+          "name": "rank_score(a=0.8,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.8,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.5119
+        },
+        {
+          "name": "minmax_linear(a=0.8)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.8
+          },
+          "tune_ndcg@10": 0.5117
+        },
+        {
+          "name": "dense",
+          "kind": "dense",
+          "params": {},
+          "tune_ndcg@10": 0.5107
+        },
+        {
+          "name": "minmax_linear(a=1.0)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 1.0
+          },
+          "tune_ndcg@10": 0.5107
+        },
+        {
+          "name": "rank_score(a=0.7,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.7,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.5085
+        },
+        {
+          "name": "minmax_linear(a=0.7)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.7
+          },
+          "tune_ndcg@10": 0.5083
+        }
+      ],
+      "winner": {
+        "name": "minmax_linear(a=0.9)",
+        "kind": "minmax_linear",
+        "params": {
+          "a": 0.9
+        },
+        "tune_ndcg@10": 0.5148
+      },
+      "test": {
+        "dense": {
+          "ndcg@10": 0.5114,
+          "ndcg@100": 0.5579,
+          "recall@10": 0.6482,
+          "recall@100": 0.844,
+          "mrr@10": 0.4942,
+          "map@100": 0.4604
+        },
+        "bm42": {
+          "ndcg@10": 0.363,
+          "ndcg@100": 0.4144,
+          "recall@10": 0.4644,
+          "recall@100": 0.6841,
+          "mrr@10": 0.3455,
+          "map@100": 0.3322
+        },
+        "rrf_equal": {
+          "ndcg@10": 0.4802,
+          "ndcg@100": 0.537,
+          "recall@10": 0.591,
+          "recall@100": 0.8181,
+          "mrr@10": 0.4728,
+          "map@100": 0.443
+        },
+        "tuned": {
+          "ndcg@10": 0.5133,
+          "ndcg@100": 0.563,
+          "recall@10": 0.639,
+          "recall@100": 0.8475,
+          "mrr@10": 0.4968,
+          "map@100": 0.4668
+        }
+      },
+      "alpha_curve_minmax": [
+        {
+          "a": 0.0,
+          "ndcg@10": 0.363
+        },
+        {
+          "a": 0.1,
+          "ndcg@10": 0.3928
+        },
+        {
+          "a": 0.2,
+          "ndcg@10": 0.4191
+        },
+        {
+          "a": 0.3,
+          "ndcg@10": 0.4529
+        },
+        {
+          "a": 0.4,
+          "ndcg@10": 0.4791
+        },
+        {
+          "a": 0.5,
+          "ndcg@10": 0.4971
+        },
+        {
+          "a": 0.6,
+          "ndcg@10": 0.5234
+        },
+        {
+          "a": 0.7,
+          "ndcg@10": 0.5224
+        },
+        {
+          "a": 0.8,
+          "ndcg@10": 0.5223
+        },
+        {
+          "a": 0.9,
+          "ndcg@10": 0.5133
+        },
+        {
+          "a": 1.0,
+          "ndcg@10": 0.5114
+        }
+      ],
+      "oracle_minmax_alpha_ndcg@10": 0.5711,
+      "beats_dense": true,
+      "beats_rrf": true,
+      "seconds": 1059.7
+    },
+    "cqadupstack/english": {
+      "dataset": "cqadupstack/english",
+      "collection": "beir_cqadupstack_english_hyb",
+      "protocol": "heldout_test_seed42_tune0.7",
+      "n_tune": 1099,
+      "n_test": 471,
+      "tune_top": [
+        {
+          "name": "minmax_linear(a=0.7)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.7
+          },
+          "tune_ndcg@10": 0.4765
+        },
+        {
+          "name": "rank_score(a=0.7,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.7,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.4765
+        },
+        {
+          "name": "rank_score(a=0.8,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.8,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.4756
+        },
+        {
+          "name": "minmax_linear(a=0.8)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.8
+          },
+          "tune_ndcg@10": 0.4755
+        },
+        {
+          "name": "rank_score(a=0.6,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.6,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.4737
+        },
+        {
+          "name": "rank_score(a=0.9,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.9,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.4736
+        },
+        {
+          "name": "minmax_linear(a=0.6)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.6
+          },
+          "tune_ndcg@10": 0.4735
+        },
+        {
+          "name": "minmax_linear(a=0.9)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.9
+          },
+          "tune_ndcg@10": 0.4733
+        }
+      ],
+      "winner": {
+        "name": "minmax_linear(a=0.7)",
+        "kind": "minmax_linear",
+        "params": {
+          "a": 0.7
+        },
+        "tune_ndcg@10": 0.4765
+      },
+      "test": {
+        "dense": {
+          "ndcg@10": 0.4877,
+          "ndcg@100": 0.5296,
+          "recall@10": 0.587,
+          "recall@100": 0.7639,
+          "mrr@10": 0.5011,
+          "map@100": 0.4367
+        },
+        "bm42": {
+          "ndcg@10": 0.2907,
+          "ndcg@100": 0.3365,
+          "recall@10": 0.3927,
+          "recall@100": 0.5911,
+          "mrr@10": 0.2832,
+          "map@100": 0.2517
+        },
+        "rrf_equal": {
+          "ndcg@10": 0.4663,
+          "ndcg@100": 0.5113,
+          "recall@10": 0.5866,
+          "recall@100": 0.7754,
+          "mrr@10": 0.4732,
+          "map@100": 0.4115
+        },
+        "tuned": {
+          "ndcg@10": 0.5075,
+          "ndcg@100": 0.5481,
+          "recall@10": 0.6062,
+          "recall@100": 0.781,
+          "mrr@10": 0.5207,
+          "map@100": 0.4563
+        }
+      },
+      "alpha_curve_minmax": [
+        {
+          "a": 0.0,
+          "ndcg@10": 0.2907
+        },
+        {
+          "a": 0.1,
+          "ndcg@10": 0.3184
+        },
+        {
+          "a": 0.2,
+          "ndcg@10": 0.3549
+        },
+        {
+          "a": 0.3,
+          "ndcg@10": 0.3967
+        },
+        {
+          "a": 0.4,
+          "ndcg@10": 0.4375
+        },
+        {
+          "a": 0.5,
+          "ndcg@10": 0.4885
+        },
+        {
+          "a": 0.6,
+          "ndcg@10": 0.5095
+        },
+        {
+          "a": 0.7,
+          "ndcg@10": 0.5075
+        },
+        {
+          "a": 0.8,
+          "ndcg@10": 0.5037
+        },
+        {
+          "a": 0.9,
+          "ndcg@10": 0.4968
+        },
+        {
+          "a": 1.0,
+          "ndcg@10": 0.4877
+        }
+      ],
+      "oracle_minmax_alpha_ndcg@10": 0.5633,
+      "beats_dense": true,
+      "beats_rrf": true,
+      "seconds": 47.4
+    },
+    "cqadupstack/gaming": {
+      "dataset": "cqadupstack/gaming",
+      "collection": "beir_cqadupstack_gaming_hyb",
+      "protocol": "heldout_test_seed42_tune0.7",
+      "n_tune": 1116,
+      "n_test": 479,
+      "tune_top": [
+        {
+          "name": "rank_score(a=0.9,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.9,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.5981
+        },
+        {
+          "name": "minmax_linear(a=0.9)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.9
+          },
+          "tune_ndcg@10": 0.598
+        },
+        {
+          "name": "minmax_linear(a=0.8)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.8
+          },
+          "tune_ndcg@10": 0.5976
+        },
+        {
+          "name": "rank_score(a=0.8,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.8,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.5975
+        },
+        {
+          "name": "minmax_linear(a=0.7)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.7
+          },
+          "tune_ndcg@10": 0.5946
+        },
+        {
+          "name": "rank_score(a=0.7,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.7,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.5945
+        },
+        {
+          "name": "dense",
+          "kind": "dense",
+          "params": {},
+          "tune_ndcg@10": 0.5924
+        },
+        {
+          "name": "minmax_linear(a=1.0)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 1.0
+          },
+          "tune_ndcg@10": 0.5924
+        }
+      ],
+      "winner": {
+        "name": "rank_score(a=0.9,mix=0.75,kappa=20)",
+        "kind": "rank_score",
+        "params": {
+          "a": 0.9,
+          "mix": 0.75,
+          "kappa": 20
+        },
+        "tune_ndcg@10": 0.5981
+      },
+      "test": {
+        "dense": {
+          "ndcg@10": 0.5784,
+          "ndcg@100": 0.619,
+          "recall@10": 0.7215,
+          "recall@100": 0.8992,
+          "mrr@10": 0.5494,
+          "map@100": 0.5291
+        },
+        "bm42": {
+          "ndcg@10": 0.3887,
+          "ndcg@100": 0.4398,
+          "recall@10": 0.5205,
+          "recall@100": 0.7505,
+          "mrr@10": 0.3645,
+          "map@100": 0.347
+        },
+        "rrf_equal": {
+          "ndcg@10": 0.5214,
+          "ndcg@100": 0.5703,
+          "recall@10": 0.6819,
+          "recall@100": 0.8954,
+          "mrr@10": 0.4917,
+          "map@100": 0.4682
+        },
+        "tuned": {
+          "ndcg@10": 0.5805,
+          "ndcg@100": 0.6204,
+          "recall@10": 0.7273,
+          "recall@100": 0.9039,
+          "mrr@10": 0.5509,
+          "map@100": 0.5295
+        }
+      },
+      "alpha_curve_minmax": [
+        {
+          "a": 0.0,
+          "ndcg@10": 0.3887
+        },
+        {
+          "a": 0.1,
+          "ndcg@10": 0.4175
+        },
+        {
+          "a": 0.2,
+          "ndcg@10": 0.4473
+        },
+        {
+          "a": 0.3,
+          "ndcg@10": 0.4812
+        },
+        {
+          "a": 0.4,
+          "ndcg@10": 0.5184
+        },
+        {
+          "a": 0.5,
+          "ndcg@10": 0.5485
+        },
+        {
+          "a": 0.6,
+          "ndcg@10": 0.5683
+        },
+        {
+          "a": 0.7,
+          "ndcg@10": 0.5782
+        },
+        {
+          "a": 0.8,
+          "ndcg@10": 0.5798
+        },
+        {
+          "a": 0.9,
+          "ndcg@10": 0.5811
+        },
+        {
+          "a": 1.0,
+          "ndcg@10": 0.5784
+        }
+      ],
+      "oracle_minmax_alpha_ndcg@10": 0.6382,
+      "beats_dense": true,
+      "beats_rrf": true,
+      "seconds": 44.7
+    },
+    "cqadupstack/gis": {
+      "dataset": "cqadupstack/gis",
+      "collection": "beir_cqadupstack_gis_hyb",
+      "protocol": "heldout_test_seed42_tune0.7",
+      "n_tune": 620,
+      "n_test": 265,
+      "tune_top": [
+        {
+          "name": "minmax_linear(a=0.8)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.8
+          },
+          "tune_ndcg@10": 0.4282
+        },
+        {
+          "name": "rank_score(a=0.8,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.8,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.4281
+        },
+        {
+          "name": "minmax_linear(a=0.9)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.9
+          },
+          "tune_ndcg@10": 0.4267
+        },
+        {
+          "name": "rank_score(a=0.9,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.9,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.4266
+        },
+        {
+          "name": "minmax_linear(a=0.7)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.7
+          },
+          "tune_ndcg@10": 0.4256
+        },
+        {
+          "name": "rank_score(a=0.7,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.7,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.4254
+        },
+        {
+          "name": "dense",
+          "kind": "dense",
+          "params": {},
+          "tune_ndcg@10": 0.4195
+        },
+        {
+          "name": "minmax_linear(a=1.0)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 1.0
+          },
+          "tune_ndcg@10": 0.4195
+        }
+      ],
+      "winner": {
+        "name": "minmax_linear(a=0.8)",
+        "kind": "minmax_linear",
+        "params": {
+          "a": 0.8
+        },
+        "tune_ndcg@10": 0.4282
+      },
+      "test": {
+        "dense": {
+          "ndcg@10": 0.3823,
+          "ndcg@100": 0.4353,
+          "recall@10": 0.5161,
+          "recall@100": 0.7509,
+          "mrr@10": 0.3537,
+          "map@100": 0.3443
+        },
+        "bm42": {
+          "ndcg@10": 0.2742,
+          "ndcg@100": 0.3205,
+          "recall@10": 0.3773,
+          "recall@100": 0.5989,
+          "mrr@10": 0.253,
+          "map@100": 0.2469
+        },
+        "rrf_equal": {
+          "ndcg@10": 0.3619,
+          "ndcg@100": 0.4157,
+          "recall@10": 0.509,
+          "recall@100": 0.7532,
+          "mrr@10": 0.3274,
+          "map@100": 0.3216
+        },
+        "tuned": {
+          "ndcg@10": 0.3934,
+          "ndcg@100": 0.4462,
+          "recall@10": 0.5236,
+          "recall@100": 0.7609,
+          "mrr@10": 0.366,
+          "map@100": 0.3554
+        }
+      },
+      "alpha_curve_minmax": [
+        {
+          "a": 0.0,
+          "ndcg@10": 0.2742
+        },
+        {
+          "a": 0.1,
+          "ndcg@10": 0.2947
+        },
+        {
+          "a": 0.2,
+          "ndcg@10": 0.3127
+        },
+        {
+          "a": 0.3,
+          "ndcg@10": 0.3306
+        },
+        {
+          "a": 0.4,
+          "ndcg@10": 0.352
+        },
+        {
+          "a": 0.5,
+          "ndcg@10": 0.3713
+        },
+        {
+          "a": 0.6,
+          "ndcg@10": 0.3868
+        },
+        {
+          "a": 0.7,
+          "ndcg@10": 0.3933
+        },
+        {
+          "a": 0.8,
+          "ndcg@10": 0.3934
+        },
+        {
+          "a": 0.9,
+          "ndcg@10": 0.391
+        },
+        {
+          "a": 1.0,
+          "ndcg@10": 0.3823
+        }
+      ],
+      "oracle_minmax_alpha_ndcg@10": 0.4464,
+      "beats_dense": true,
+      "beats_rrf": true,
+      "seconds": 23.5
+    },
+    "cqadupstack/mathematica": {
+      "dataset": "cqadupstack/mathematica",
+      "collection": "beir_cqadupstack_mathematica_hyb",
+      "protocol": "heldout_test_seed42_tune0.7",
+      "n_tune": 563,
+      "n_test": 241,
+      "tune_top": [
+        {
+          "name": "rank_score(a=0.8,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.8,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.3192
+        },
+        {
+          "name": "minmax_linear(a=0.8)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.8
+          },
+          "tune_ndcg@10": 0.3188
+        },
+        {
+          "name": "rank_score(a=0.9,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.9,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.3172
+        },
+        {
+          "name": "minmax_linear(a=0.9)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.9
+          },
+          "tune_ndcg@10": 0.3171
+        },
+        {
+          "name": "dense",
+          "kind": "dense",
+          "params": {},
+          "tune_ndcg@10": 0.3151
+        },
+        {
+          "name": "minmax_linear(a=1.0)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 1.0
+          },
+          "tune_ndcg@10": 0.3151
+        },
+        {
+          "name": "minmax_linear(a=0.7)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.7
+          },
+          "tune_ndcg@10": 0.3141
+        },
+        {
+          "name": "rank_score(a=0.7,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.7,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.3141
+        }
+      ],
+      "winner": {
+        "name": "rank_score(a=0.8,mix=0.75,kappa=20)",
+        "kind": "rank_score",
+        "params": {
+          "a": 0.8,
+          "mix": 0.75,
+          "kappa": 20
+        },
+        "tune_ndcg@10": 0.3192
+      },
+      "test": {
+        "dense": {
+          "ndcg@10": 0.3193,
+          "ndcg@100": 0.3799,
+          "recall@10": 0.4496,
+          "recall@100": 0.7131,
+          "mrr@10": 0.3084,
+          "map@100": 0.2758
+        },
+        "bm42": {
+          "ndcg@10": 0.1978,
+          "ndcg@100": 0.2472,
+          "recall@10": 0.2836,
+          "recall@100": 0.5049,
+          "mrr@10": 0.1926,
+          "map@100": 0.1716
+        },
+        "rrf_equal": {
+          "ndcg@10": 0.2799,
+          "ndcg@100": 0.3404,
+          "recall@10": 0.421,
+          "recall@100": 0.685,
+          "mrr@10": 0.2647,
+          "map@100": 0.2346
+        },
+        "tuned": {
+          "ndcg@10": 0.3224,
+          "ndcg@100": 0.3811,
+          "recall@10": 0.4503,
+          "recall@100": 0.6991,
+          "mrr@10": 0.3142,
+          "map@100": 0.2787
+        }
+      },
+      "alpha_curve_minmax": [
+        {
+          "a": 0.0,
+          "ndcg@10": 0.1978
+        },
+        {
+          "a": 0.1,
+          "ndcg@10": 0.2101
+        },
+        {
+          "a": 0.2,
+          "ndcg@10": 0.2275
+        },
+        {
+          "a": 0.3,
+          "ndcg@10": 0.2501
+        },
+        {
+          "a": 0.4,
+          "ndcg@10": 0.267
+        },
+        {
+          "a": 0.5,
+          "ndcg@10": 0.2925
+        },
+        {
+          "a": 0.6,
+          "ndcg@10": 0.307
+        },
+        {
+          "a": 0.7,
+          "ndcg@10": 0.3174
+        },
+        {
+          "a": 0.8,
+          "ndcg@10": 0.3223
+        },
+        {
+          "a": 0.9,
+          "ndcg@10": 0.322
+        },
+        {
+          "a": 1.0,
+          "ndcg@10": 0.3193
+        }
+      ],
+      "oracle_minmax_alpha_ndcg@10": 0.3641,
+      "beats_dense": true,
+      "beats_rrf": true,
+      "seconds": 25.0
+    },
+    "cqadupstack/physics": {
+      "dataset": "cqadupstack/physics",
+      "collection": "beir_cqadupstack_physics_hyb",
+      "protocol": "heldout_test_seed42_tune0.7",
+      "n_tune": 727,
+      "n_test": 312,
+      "tune_top": [
+        {
+          "name": "dense",
+          "kind": "dense",
+          "params": {},
+          "tune_ndcg@10": 0.476
+        },
+        {
+          "name": "minmax_linear(a=1.0)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 1.0
+          },
+          "tune_ndcg@10": 0.476
+        },
+        {
+          "name": "rank_score(a=0.9,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.9,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.4751
+        },
+        {
+          "name": "minmax_linear(a=0.9)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.9
+          },
+          "tune_ndcg@10": 0.475
+        },
+        {
+          "name": "minmax_linear(a=0.8)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.8
+          },
+          "tune_ndcg@10": 0.4739
+        },
+        {
+          "name": "rank_score(a=0.8,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.8,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.4735
+        },
+        {
+          "name": "rank_score(a=0.7,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.7,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.4731
+        },
+        {
+          "name": "minmax_linear(a=0.7)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.7
+          },
+          "tune_ndcg@10": 0.4727
+        }
+      ],
+      "winner": {
+        "name": "dense",
+        "kind": "dense",
+        "params": {},
+        "tune_ndcg@10": 0.476
+      },
+      "test": {
+        "dense": {
+          "ndcg@10": 0.4657,
+          "ndcg@100": 0.5137,
+          "recall@10": 0.5856,
+          "recall@100": 0.789,
+          "mrr@10": 0.4632,
+          "map@100": 0.4171
+        },
+        "bm42": {
+          "ndcg@10": 0.2997,
+          "ndcg@100": 0.3559,
+          "recall@10": 0.4057,
+          "recall@100": 0.6444,
+          "mrr@10": 0.2982,
+          "map@100": 0.2632
+        },
+        "rrf_equal": {
+          "ndcg@10": 0.4191,
+          "ndcg@100": 0.4737,
+          "recall@10": 0.5554,
+          "recall@100": 0.7878,
+          "mrr@10": 0.4104,
+          "map@100": 0.369
+        },
+        "tuned": {
+          "ndcg@10": 0.4657,
+          "ndcg@100": 0.5137,
+          "recall@10": 0.5856,
+          "recall@100": 0.789,
+          "mrr@10": 0.4632,
+          "map@100": 0.4171
+        }
+      },
+      "alpha_curve_minmax": [
+        {
+          "a": 0.0,
+          "ndcg@10": 0.2997
+        },
+        {
+          "a": 0.1,
+          "ndcg@10": 0.3243
+        },
+        {
+          "a": 0.2,
+          "ndcg@10": 0.3531
+        },
+        {
+          "a": 0.3,
+          "ndcg@10": 0.3821
+        },
+        {
+          "a": 0.4,
+          "ndcg@10": 0.4126
+        },
+        {
+          "a": 0.5,
+          "ndcg@10": 0.4428
+        },
+        {
+          "a": 0.6,
+          "ndcg@10": 0.4562
+        },
+        {
+          "a": 0.7,
+          "ndcg@10": 0.4734
+        },
+        {
+          "a": 0.8,
+          "ndcg@10": 0.4781
+        },
+        {
+          "a": 0.9,
+          "ndcg@10": 0.4739
+        },
+        {
+          "a": 1.0,
+          "ndcg@10": 0.4657
+        }
+      ],
+      "oracle_minmax_alpha_ndcg@10": 0.5337,
+      "beats_dense": false,
+      "beats_rrf": true,
+      "seconds": 27.3
+    },
+    "cqadupstack/programmers": {
+      "dataset": "cqadupstack/programmers",
+      "collection": "beir_cqadupstack_programmers_hyb",
+      "protocol": "heldout_test_seed42_tune0.7",
+      "n_tune": 613,
+      "n_test": 263,
+      "tune_top": [
+        {
+          "name": "minmax_linear(a=0.9)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.9
+          },
+          "tune_ndcg@10": 0.4292
+        },
+        {
+          "name": "rank_score(a=0.9,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.9,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.4286
+        },
+        {
+          "name": "rank_score(a=0.8,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.8,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.4275
+        },
+        {
+          "name": "minmax_linear(a=0.8)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.8
+          },
+          "tune_ndcg@10": 0.4269
+        },
+        {
+          "name": "dense",
+          "kind": "dense",
+          "params": {},
+          "tune_ndcg@10": 0.426
+        },
+        {
+          "name": "minmax_linear(a=1.0)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 1.0
+          },
+          "tune_ndcg@10": 0.426
+        },
+        {
+          "name": "minmax_linear(a=0.7)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.7
+          },
+          "tune_ndcg@10": 0.4242
+        },
+        {
+          "name": "rank_score(a=0.7,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.7,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.4242
+        }
+      ],
+      "winner": {
+        "name": "minmax_linear(a=0.9)",
+        "kind": "minmax_linear",
+        "params": {
+          "a": 0.9
+        },
+        "tune_ndcg@10": 0.4292
+      },
+      "test": {
+        "dense": {
+          "ndcg@10": 0.4196,
+          "ndcg@100": 0.4852,
+          "recall@10": 0.5305,
+          "recall@100": 0.8083,
+          "mrr@10": 0.4186,
+          "map@100": 0.3777
+        },
+        "bm42": {
+          "ndcg@10": 0.2562,
+          "ndcg@100": 0.3104,
+          "recall@10": 0.3747,
+          "recall@100": 0.6085,
+          "mrr@10": 0.2391,
+          "map@100": 0.2179
+        },
+        "rrf_equal": {
+          "ndcg@10": 0.3777,
+          "ndcg@100": 0.4458,
+          "recall@10": 0.5086,
+          "recall@100": 0.7928,
+          "mrr@10": 0.3691,
+          "map@100": 0.3337
+        },
+        "tuned": {
+          "ndcg@10": 0.4237,
+          "ndcg@100": 0.4917,
+          "recall@10": 0.5234,
+          "recall@100": 0.8094,
+          "mrr@10": 0.4262,
+          "map@100": 0.3857
+        }
+      },
+      "alpha_curve_minmax": [
+        {
+          "a": 0.0,
+          "ndcg@10": 0.2562
+        },
+        {
+          "a": 0.1,
+          "ndcg@10": 0.276
+        },
+        {
+          "a": 0.2,
+          "ndcg@10": 0.3071
+        },
+        {
+          "a": 0.3,
+          "ndcg@10": 0.3399
+        },
+        {
+          "a": 0.4,
+          "ndcg@10": 0.379
+        },
+        {
+          "a": 0.5,
+          "ndcg@10": 0.4071
+        },
+        {
+          "a": 0.6,
+          "ndcg@10": 0.4211
+        },
+        {
+          "a": 0.7,
+          "ndcg@10": 0.4217
+        },
+        {
+          "a": 0.8,
+          "ndcg@10": 0.4255
+        },
+        {
+          "a": 0.9,
+          "ndcg@10": 0.4237
+        },
+        {
+          "a": 1.0,
+          "ndcg@10": 0.4196
+        }
+      ],
+      "oracle_minmax_alpha_ndcg@10": 0.4823,
+      "beats_dense": true,
+      "beats_rrf": true,
+      "seconds": 24.2
+    },
+    "cqadupstack/stats": {
+      "dataset": "cqadupstack/stats",
+      "collection": "beir_cqadupstack_stats_hyb",
+      "protocol": "heldout_test_seed42_tune0.7",
+      "n_tune": 456,
+      "n_test": 196,
+      "tune_top": [
+        {
+          "name": "minmax_linear(a=0.8)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.8
+          },
+          "tune_ndcg@10": 0.3617
+        },
+        {
+          "name": "rank_score(a=0.8,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.8,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.3617
+        },
+        {
+          "name": "rank_score(a=0.9,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.9,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.3593
+        },
+        {
+          "name": "minmax_linear(a=0.9)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.9
+          },
+          "tune_ndcg@10": 0.3592
+        },
+        {
+          "name": "dense",
+          "kind": "dense",
+          "params": {},
+          "tune_ndcg@10": 0.3567
+        },
+        {
+          "name": "minmax_linear(a=1.0)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 1.0
+          },
+          "tune_ndcg@10": 0.3567
+        },
+        {
+          "name": "rank_score(a=0.7,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.7,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.3539
+        },
+        {
+          "name": "minmax_linear(a=0.7)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.7
+          },
+          "tune_ndcg@10": 0.3538
+        }
+      ],
+      "winner": {
+        "name": "minmax_linear(a=0.8)",
+        "kind": "minmax_linear",
+        "params": {
+          "a": 0.8
+        },
+        "tune_ndcg@10": 0.3617
+      },
+      "test": {
+        "dense": {
+          "ndcg@10": 0.4014,
+          "ndcg@100": 0.4461,
+          "recall@10": 0.4547,
+          "recall@100": 0.6565,
+          "mrr@10": 0.4001,
+          "map@100": 0.3842
+        },
+        "bm42": {
+          "ndcg@10": 0.2683,
+          "ndcg@100": 0.3143,
+          "recall@10": 0.3565,
+          "recall@100": 0.5692,
+          "mrr@10": 0.2495,
+          "map@100": 0.2441
+        },
+        "rrf_equal": {
+          "ndcg@10": 0.3679,
+          "ndcg@100": 0.4134,
+          "recall@10": 0.4613,
+          "recall@100": 0.6665,
+          "mrr@10": 0.3516,
+          "map@100": 0.3417
+        },
+        "tuned": {
+          "ndcg@10": 0.4069,
+          "ndcg@100": 0.4536,
+          "recall@10": 0.4619,
+          "recall@100": 0.6737,
+          "mrr@10": 0.4059,
+          "map@100": 0.3901
+        }
+      },
+      "alpha_curve_minmax": [
+        {
+          "a": 0.0,
+          "ndcg@10": 0.2683
+        },
+        {
+          "a": 0.1,
+          "ndcg@10": 0.2856
+        },
+        {
+          "a": 0.2,
+          "ndcg@10": 0.3131
+        },
+        {
+          "a": 0.3,
+          "ndcg@10": 0.3384
+        },
+        {
+          "a": 0.4,
+          "ndcg@10": 0.3822
+        },
+        {
+          "a": 0.5,
+          "ndcg@10": 0.404
+        },
+        {
+          "a": 0.6,
+          "ndcg@10": 0.4154
+        },
+        {
+          "a": 0.7,
+          "ndcg@10": 0.4181
+        },
+        {
+          "a": 0.8,
+          "ndcg@10": 0.4069
+        },
+        {
+          "a": 0.9,
+          "ndcg@10": 0.4035
+        },
+        {
+          "a": 1.0,
+          "ndcg@10": 0.4014
+        }
+      ],
+      "oracle_minmax_alpha_ndcg@10": 0.4534,
+      "beats_dense": true,
+      "beats_rrf": true,
+      "seconds": 17.3
+    },
+    "cqadupstack/tex": {
+      "dataset": "cqadupstack/tex",
+      "collection": "beir_cqadupstack_tex_hyb",
+      "protocol": "heldout_test_seed42_tune0.7",
+      "n_tune": 2034,
+      "n_test": 872,
+      "tune_top": [
+        {
+          "name": "minmax_linear(a=0.7)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.7
+          },
+          "tune_ndcg@10": 0.3232
+        },
+        {
+          "name": "rank_score(a=0.7,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.7,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.3232
+        },
+        {
+          "name": "minmax_linear(a=0.6)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.6
+          },
+          "tune_ndcg@10": 0.3198
+        },
+        {
+          "name": "minmax_linear(a=0.8)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.8
+          },
+          "tune_ndcg@10": 0.3197
+        },
+        {
+          "name": "rank_score(a=0.8,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.8,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.3197
+        },
+        {
+          "name": "rank_score(a=0.6,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.6,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.3196
+        },
+        {
+          "name": "minmax_linear(a=0.9)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.9
+          },
+          "tune_ndcg@10": 0.3159
+        },
+        {
+          "name": "rank_score(a=0.9,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.9,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.3159
+        }
+      ],
+      "winner": {
+        "name": "minmax_linear(a=0.7)",
+        "kind": "minmax_linear",
+        "params": {
+          "a": 0.7
+        },
+        "tune_ndcg@10": 0.3232
+      },
+      "test": {
+        "dense": {
+          "ndcg@10": 0.3008,
+          "ndcg@100": 0.3556,
+          "recall@10": 0.4099,
+          "recall@100": 0.6558,
+          "mrr@10": 0.2887,
+          "map@100": 0.2644
+        },
+        "bm42": {
+          "ndcg@10": 0.1826,
+          "ndcg@100": 0.2327,
+          "recall@10": 0.261,
+          "recall@100": 0.4927,
+          "mrr@10": 0.172,
+          "map@100": 0.16
+        },
+        "rrf_equal": {
+          "ndcg@10": 0.2749,
+          "ndcg@100": 0.3346,
+          "recall@10": 0.3874,
+          "recall@100": 0.654,
+          "mrr@10": 0.2603,
+          "map@100": 0.2406
+        },
+        "tuned": {
+          "ndcg@10": 0.3087,
+          "ndcg@100": 0.3632,
+          "recall@10": 0.4155,
+          "recall@100": 0.6565,
+          "mrr@10": 0.298,
+          "map@100": 0.2735
+        }
+      },
+      "alpha_curve_minmax": [
+        {
+          "a": 0.0,
+          "ndcg@10": 0.1826
+        },
+        {
+          "a": 0.1,
+          "ndcg@10": 0.2004
+        },
+        {
+          "a": 0.2,
+          "ndcg@10": 0.2205
+        },
+        {
+          "a": 0.3,
+          "ndcg@10": 0.2472
+        },
+        {
+          "a": 0.4,
+          "ndcg@10": 0.2668
+        },
+        {
+          "a": 0.5,
+          "ndcg@10": 0.2899
+        },
+        {
+          "a": 0.6,
+          "ndcg@10": 0.3029
+        },
+        {
+          "a": 0.7,
+          "ndcg@10": 0.3087
+        },
+        {
+          "a": 0.8,
+          "ndcg@10": 0.3079
+        },
+        {
+          "a": 0.9,
+          "ndcg@10": 0.3064
+        },
+        {
+          "a": 1.0,
+          "ndcg@10": 0.3008
+        }
+      ],
+      "oracle_minmax_alpha_ndcg@10": 0.3631,
+      "beats_dense": true,
+      "beats_rrf": true,
+      "seconds": 145.5
+    },
+    "cqadupstack/unix": {
+      "dataset": "cqadupstack/unix",
+      "collection": "beir_cqadupstack_unix_hyb",
+      "protocol": "heldout_test_seed42_tune0.7",
+      "n_tune": 750,
+      "n_test": 322,
+      "tune_top": [
+        {
+          "name": "rank_score(a=0.8,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.8,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.4215
+        },
+        {
+          "name": "minmax_linear(a=0.9)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.9
+          },
+          "tune_ndcg@10": 0.4214
+        },
+        {
+          "name": "minmax_linear(a=0.8)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.8
+          },
+          "tune_ndcg@10": 0.4213
+        },
+        {
+          "name": "rank_score(a=0.9,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.9,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.4213
+        },
+        {
+          "name": "minmax_linear(a=0.7)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.7
+          },
+          "tune_ndcg@10": 0.4185
+        },
+        {
+          "name": "rank_score(a=0.7,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.7,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.4183
+        },
+        {
+          "name": "dense",
+          "kind": "dense",
+          "params": {},
+          "tune_ndcg@10": 0.4163
+        },
+        {
+          "name": "minmax_linear(a=1.0)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 1.0
+          },
+          "tune_ndcg@10": 0.4163
+        }
+      ],
+      "winner": {
+        "name": "rank_score(a=0.8,mix=0.75,kappa=20)",
+        "kind": "rank_score",
+        "params": {
+          "a": 0.8,
+          "mix": 0.75,
+          "kappa": 20
+        },
+        "tune_ndcg@10": 0.4215
+      },
+      "test": {
+        "dense": {
+          "ndcg@10": 0.4288,
+          "ndcg@100": 0.4794,
+          "recall@10": 0.5469,
+          "recall@100": 0.7655,
+          "mrr@10": 0.4113,
+          "map@100": 0.3906
+        },
+        "bm42": {
+          "ndcg@10": 0.2348,
+          "ndcg@100": 0.2835,
+          "recall@10": 0.3167,
+          "recall@100": 0.5448,
+          "mrr@10": 0.221,
+          "map@100": 0.2111
+        },
+        "rrf_equal": {
+          "ndcg@10": 0.3478,
+          "ndcg@100": 0.4125,
+          "recall@10": 0.4716,
+          "recall@100": 0.7487,
+          "mrr@10": 0.3257,
+          "map@100": 0.313
+        },
+        "tuned": {
+          "ndcg@10": 0.417,
+          "ndcg@100": 0.4706,
+          "recall@10": 0.538,
+          "recall@100": 0.7685,
+          "mrr@10": 0.3961,
+          "map@100": 0.3792
+        }
+      },
+      "alpha_curve_minmax": [
+        {
+          "a": 0.0,
+          "ndcg@10": 0.2348
+        },
+        {
+          "a": 0.1,
+          "ndcg@10": 0.2535
+        },
+        {
+          "a": 0.2,
+          "ndcg@10": 0.2789
+        },
+        {
+          "a": 0.3,
+          "ndcg@10": 0.304
+        },
+        {
+          "a": 0.4,
+          "ndcg@10": 0.3384
+        },
+        {
+          "a": 0.5,
+          "ndcg@10": 0.3754
+        },
+        {
+          "a": 0.6,
+          "ndcg@10": 0.3977
+        },
+        {
+          "a": 0.7,
+          "ndcg@10": 0.4073
+        },
+        {
+          "a": 0.8,
+          "ndcg@10": 0.417
+        },
+        {
+          "a": 0.9,
+          "ndcg@10": 0.4272
+        },
+        {
+          "a": 1.0,
+          "ndcg@10": 0.4288
+        }
+      ],
+      "oracle_minmax_alpha_ndcg@10": 0.4753,
+      "beats_dense": false,
+      "beats_rrf": true,
+      "seconds": 28.3
+    },
+    "cqadupstack/webmasters": {
+      "dataset": "cqadupstack/webmasters",
+      "collection": "beir_cqadupstack_webmasters_hyb",
+      "protocol": "heldout_test_seed42_tune0.7",
+      "n_tune": 354,
+      "n_test": 152,
+      "tune_top": [
+        {
+          "name": "minmax_linear(a=0.8)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.8
+          },
+          "tune_ndcg@10": 0.4193
+        },
+        {
+          "name": "rank_score(a=0.8,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.8,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.4193
+        },
+        {
+          "name": "minmax_linear(a=0.7)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.7
+          },
+          "tune_ndcg@10": 0.4183
+        },
+        {
+          "name": "rank_score(a=0.7,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.7,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.4173
+        },
+        {
+          "name": "minmax_linear(a=0.9)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.9
+          },
+          "tune_ndcg@10": 0.4148
+        },
+        {
+          "name": "rank_score(a=0.9,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.9,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.4148
+        },
+        {
+          "name": "dense",
+          "kind": "dense",
+          "params": {},
+          "tune_ndcg@10": 0.4147
+        },
+        {
+          "name": "minmax_linear(a=1.0)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 1.0
+          },
+          "tune_ndcg@10": 0.4147
+        }
+      ],
+      "winner": {
+        "name": "minmax_linear(a=0.8)",
+        "kind": "minmax_linear",
+        "params": {
+          "a": 0.8
+        },
+        "tune_ndcg@10": 0.4193
+      },
+      "test": {
+        "dense": {
+          "ndcg@10": 0.3888,
+          "ndcg@100": 0.4538,
+          "recall@10": 0.464,
+          "recall@100": 0.7635,
+          "mrr@10": 0.3887,
+          "map@100": 0.3559
+        },
+        "bm42": {
+          "ndcg@10": 0.2708,
+          "ndcg@100": 0.3203,
+          "recall@10": 0.3341,
+          "recall@100": 0.5666,
+          "mrr@10": 0.2779,
+          "map@100": 0.2443
+        },
+        "rrf_equal": {
+          "ndcg@10": 0.354,
+          "ndcg@100": 0.4211,
+          "recall@10": 0.4307,
+          "recall@100": 0.734,
+          "mrr@10": 0.359,
+          "map@100": 0.3237
+        },
+        "tuned": {
+          "ndcg@10": 0.3982,
+          "ndcg@100": 0.4616,
+          "recall@10": 0.4705,
+          "recall@100": 0.7553,
+          "mrr@10": 0.4032,
+          "map@100": 0.3663
+        }
+      },
+      "alpha_curve_minmax": [
+        {
+          "a": 0.0,
+          "ndcg@10": 0.2708
+        },
+        {
+          "a": 0.1,
+          "ndcg@10": 0.2873
+        },
+        {
+          "a": 0.2,
+          "ndcg@10": 0.316
+        },
+        {
+          "a": 0.3,
+          "ndcg@10": 0.3329
+        },
+        {
+          "a": 0.4,
+          "ndcg@10": 0.3567
+        },
+        {
+          "a": 0.5,
+          "ndcg@10": 0.3745
+        },
+        {
+          "a": 0.6,
+          "ndcg@10": 0.391
+        },
+        {
+          "a": 0.7,
+          "ndcg@10": 0.3924
+        },
+        {
+          "a": 0.8,
+          "ndcg@10": 0.3982
+        },
+        {
+          "a": 0.9,
+          "ndcg@10": 0.3975
+        },
+        {
+          "a": 1.0,
+          "ndcg@10": 0.3888
+        }
+      ],
+      "oracle_minmax_alpha_ndcg@10": 0.4369,
+      "beats_dense": true,
+      "beats_rrf": true,
+      "seconds": 10.9
+    },
+    "cqadupstack/wordpress": {
+      "dataset": "cqadupstack/wordpress",
+      "collection": "beir_cqadupstack_wordpress_hyb",
+      "protocol": "heldout_test_seed42_tune0.7",
+      "n_tune": 379,
+      "n_test": 162,
+      "tune_top": [
+        {
+          "name": "minmax_linear(a=0.8)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.8
+          },
+          "tune_ndcg@10": 0.355
+        },
+        {
+          "name": "rank_score(a=0.7,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.7,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.355
+        },
+        {
+          "name": "rank_score(a=0.8,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.8,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.355
+        },
+        {
+          "name": "minmax_linear(a=0.7)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.7
+          },
+          "tune_ndcg@10": 0.3549
+        },
+        {
+          "name": "rank_score(a=0.9,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.9,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.3499
+        },
+        {
+          "name": "minmax_linear(a=0.9)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.9
+          },
+          "tune_ndcg@10": 0.3498
+        },
+        {
+          "name": "minmax_linear(a=0.6)",
+          "kind": "minmax_linear",
+          "params": {
+            "a": 0.6
+          },
+          "tune_ndcg@10": 0.3461
+        },
+        {
+          "name": "rank_score(a=0.6,mix=0.75,kappa=20)",
+          "kind": "rank_score",
+          "params": {
+            "a": 0.6,
+            "mix": 0.75,
+            "kappa": 20
+          },
+          "tune_ndcg@10": 0.3451
+        }
+      ],
+      "winner": {
+        "name": "minmax_linear(a=0.8)",
+        "kind": "minmax_linear",
+        "params": {
+          "a": 0.8
+        },
+        "tune_ndcg@10": 0.355
+      },
+      "test": {
+        "dense": {
+          "ndcg@10": 0.3724,
+          "ndcg@100": 0.4287,
+          "recall@10": 0.4912,
+          "recall@100": 0.7393,
+          "mrr@10": 0.3434,
+          "map@100": 0.3422
+        },
+        "bm42": {
+          "ndcg@10": 0.2045,
+          "ndcg@100": 0.2598,
+          "recall@10": 0.2821,
+          "recall@100": 0.5397,
+          "mrr@10": 0.1849,
+          "map@100": 0.189
+        },
+        "rrf_equal": {
+          "ndcg@10": 0.3167,
+          "ndcg@100": 0.3748,
+          "recall@10": 0.4613,
+          "recall@100": 0.7249,
+          "mrr@10": 0.2773,
+          "map@100": 0.2791
+        },
+        "tuned": {
+          "ndcg@10": 0.3766,
+          "ndcg@100": 0.4294,
+          "recall@10": 0.5056,
+          "recall@100": 0.7393,
+          "mrr@10": 0.3443,
+          "map@100": 0.3429
+        }
+      },
+      "alpha_curve_minmax": [
+        {
+          "a": 0.0,
+          "ndcg@10": 0.2045
+        },
+        {
+          "a": 0.1,
+          "ndcg@10": 0.2262
+        },
+        {
+          "a": 0.2,
+          "ndcg@10": 0.2522
+        },
+        {
+          "a": 0.3,
+          "ndcg@10": 0.2789
+        },
+        {
+          "a": 0.4,
+          "ndcg@10": 0.3049
+        },
+        {
+          "a": 0.5,
+          "ndcg@10": 0.3456
+        },
+        {
+          "a": 0.6,
+          "ndcg@10": 0.3585
+        },
+        {
+          "a": 0.7,
+          "ndcg@10": 0.3618
+        },
+        {
+          "a": 0.8,
+          "ndcg@10": 0.3766
+        },
+        {
+          "a": 0.9,
+          "ndcg@10": 0.3708
+        },
+        {
+          "a": 1.0,
+          "ndcg@10": 0.3724
+        }
+      ],
+      "oracle_minmax_alpha_ndcg@10": 0.426,
+      "beats_dense": true,
+      "beats_rrf": true,
+      "seconds": 14.6
+    }
+  },
+  "notes": "Per-dataset train-then-freeze of the parameterized hybrid mix.",
+  "summary": {
+    "n_datasets": 20,
+    "n_beats_dense": 16,
+    "n_beats_rrf": 20,
+    "mean_test_ndcg@10": {
+      "dense": 0.4622,
+      "rrf": 0.4204,
+      "tuned": 0.4671
+    }
+  }
+}

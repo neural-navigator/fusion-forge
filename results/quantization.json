@@ -1,0 +1,356 @@
+{
+  "runs": [
+    {
+      "name": "full_fp32",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.7445,
+        "ndcg@100": 0.7664,
+        "recall@10": 0.8676,
+        "recall@100": 0.9643,
+        "precision@10": 0.098,
+        "mrr@10": 0.7125,
+        "map@100": 0.7057
+      },
+      "latency_ms": {
+        "mean": 7.39,
+        "p50": 7.22,
+        "p95": 9.26
+      },
+      "extra": {
+        "collection": "scifact_dense",
+        "rescore": null,
+        "points_count": 5183,
+        "indexed_vectors_count": 5152,
+        "status": "green",
+        "segments_count": 7,
+        "disk_bytes": 51142656,
+        "raw": {
+          "points_count": 5183,
+          "indexed_vectors_count": 5152,
+          "status": "green",
+          "optimizer_status": "ok"
+        },
+        "disk_mb": 48.773
+      }
+    },
+    {
+      "name": "scalar_int8_rescore",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.7445,
+        "ndcg@100": 0.7664,
+        "recall@10": 0.8676,
+        "recall@100": 0.9643,
+        "precision@10": 0.098,
+        "mrr@10": 0.7125,
+        "map@100": 0.7057
+      },
+      "latency_ms": {
+        "mean": 7.04,
+        "p50": 6.8,
+        "p95": 9.18
+      },
+      "extra": {
+        "collection": "scifact_dense_scalar",
+        "rescore": true,
+        "points_count": 5183,
+        "indexed_vectors_count": 5183,
+        "status": "green",
+        "segments_count": 7,
+        "disk_bytes": 55181312,
+        "raw": {
+          "points_count": 5183,
+          "indexed_vectors_count": 5183,
+          "status": "green",
+          "optimizer_status": "ok"
+        },
+        "disk_mb": 52.625
+      }
+    },
+    {
+      "name": "scalar_int8_no_rescore",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.7459,
+        "ndcg@100": 0.7665,
+        "recall@10": 0.8726,
+        "recall@100": 0.9643,
+        "precision@10": 0.0987,
+        "mrr@10": 0.7128,
+        "map@100": 0.7057
+      },
+      "latency_ms": {
+        "mean": 6.52,
+        "p50": 6.46,
+        "p95": 7.82
+      },
+      "extra": {
+        "collection": "scifact_dense_scalar",
+        "rescore": false,
+        "points_count": 5183,
+        "indexed_vectors_count": 5183,
+        "status": "green",
+        "segments_count": 7,
+        "disk_bytes": 55181312,
+        "raw": {
+          "points_count": 5183,
+          "indexed_vectors_count": 5183,
+          "status": "green",
+          "optimizer_status": "ok"
+        },
+        "disk_mb": 52.625
+      }
+    },
+    {
+      "name": "binary_rescore",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.7445,
+        "ndcg@100": 0.7665,
+        "recall@10": 0.8676,
+        "recall@100": 0.9643,
+        "precision@10": 0.098,
+        "mrr@10": 0.7125,
+        "map@100": 0.7057
+      },
+      "latency_ms": {
+        "mean": 6.89,
+        "p50": 6.66,
+        "p95": 9.01
+      },
+      "extra": {
+        "collection": "scifact_dense_binary",
+        "rescore": true,
+        "points_count": 5183,
+        "indexed_vectors_count": 5120,
+        "status": "green",
+        "segments_count": 7,
+        "disk_bytes": 51748864,
+        "raw": {
+          "points_count": 5183,
+          "indexed_vectors_count": 5120,
+          "status": "green",
+          "optimizer_status": "ok"
+        },
+        "disk_mb": 49.352
+      }
+    },
+    {
+      "name": "binary_no_rescore",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.6636,
+        "ndcg@100": 0.6966,
+        "recall@10": 0.7818,
+        "recall@100": 0.9293,
+        "precision@10": 0.0883,
+        "mrr@10": 0.6321,
+        "map@100": 0.6282
+      },
+      "latency_ms": {
+        "mean": 6.36,
+        "p50": 6.29,
+        "p95": 7.45
+      },
+      "extra": {
+        "collection": "scifact_dense_binary",
+        "rescore": false,
+        "points_count": 5183,
+        "indexed_vectors_count": 5120,
+        "status": "green",
+        "segments_count": 7,
+        "disk_bytes": 51748864,
+        "raw": {
+          "points_count": 5183,
+          "indexed_vectors_count": 5120,
+          "status": "green",
+          "optimizer_status": "ok"
+        },
+        "disk_mb": 49.352
+      }
+    },
+    {
+      "name": "pq_x16_rescore",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.7445,
+        "ndcg@100": 0.7664,
+        "recall@10": 0.8676,
+        "recall@100": 0.9643,
+        "precision@10": 0.098,
+        "mrr@10": 0.7125,
+        "map@100": 0.7057
+      },
+      "latency_ms": {
+        "mean": 7.89,
+        "p50": 7.66,
+        "p95": 10.29
+      },
+      "extra": {
+        "collection": "scifact_dense_pq",
+        "rescore": true,
+        "points_count": 5183,
+        "indexed_vectors_count": 5120,
+        "status": "green",
+        "segments_count": 8,
+        "disk_bytes": 68939776,
+        "raw": {
+          "points_count": 5183,
+          "indexed_vectors_count": 5120,
+          "status": "green",
+          "optimizer_status": "ok"
+        },
+        "disk_mb": 65.746
+      }
+    },
+    {
+      "name": "pq_x16_no_rescore",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.7342,
+        "ndcg@100": 0.7586,
+        "recall@10": 0.8584,
+        "recall@100": 0.965,
+        "precision@10": 0.097,
+        "mrr@10": 0.7021,
+        "map@100": 0.6945
+      },
+      "latency_ms": {
+        "mean": 7.39,
+        "p50": 7.37,
+        "p95": 8.81
+      },
+      "extra": {
+        "collection": "scifact_dense_pq",
+        "rescore": false,
+        "points_count": 5183,
+        "indexed_vectors_count": 5120,
+        "status": "green",
+        "segments_count": 8,
+        "disk_bytes": 68939776,
+        "raw": {
+          "points_count": 5183,
+          "indexed_vectors_count": 5120,
+          "status": "green",
+          "optimizer_status": "ok"
+        },
+        "disk_mb": 65.746
+      }
+    }
+  ],
+  "resources": {
+    "full_fp32": {
+      "collection": "scifact_dense",
+      "rescore": null,
+      "points_count": 5183,
+      "indexed_vectors_count": 5152,
+      "status": "green",
+      "segments_count": 7,
+      "disk_bytes": 51142656,
+      "raw": {
+        "points_count": 5183,
+        "indexed_vectors_count": 5152,
+        "status": "green",
+        "optimizer_status": "ok"
+      },
+      "disk_mb": 48.773
+    },
+    "scalar_int8_rescore": {
+      "collection": "scifact_dense_scalar",
+      "rescore": true,
+      "points_count": 5183,
+      "indexed_vectors_count": 5183,
+      "status": "green",
+      "segments_count": 7,
+      "disk_bytes": 55181312,
+      "raw": {
+        "points_count": 5183,
+        "indexed_vectors_count": 5183,
+        "status": "green",
+        "optimizer_status": "ok"
+      },
+      "disk_mb": 52.625
+    },
+    "scalar_int8_no_rescore": {
+      "collection": "scifact_dense_scalar",
+      "rescore": false,
+      "points_count": 5183,
+      "indexed_vectors_count": 5183,
+      "status": "green",
+      "segments_count": 7,
+      "disk_bytes": 55181312,
+      "raw": {
+        "points_count": 5183,
+        "indexed_vectors_count": 5183,
+        "status": "green",
+        "optimizer_status": "ok"
+      },
+      "disk_mb": 52.625
+    },
+    "binary_rescore": {
+      "collection": "scifact_dense_binary",
+      "rescore": true,
+      "points_count": 5183,
+      "indexed_vectors_count": 5120,
+      "status": "green",
+      "segments_count": 7,
+      "disk_bytes": 51748864,
+      "raw": {
+        "points_count": 5183,
+        "indexed_vectors_count": 5120,
+        "status": "green",
+        "optimizer_status": "ok"
+      },
+      "disk_mb": 49.352
+    },
+    "binary_no_rescore": {
+      "collection": "scifact_dense_binary",
+      "rescore": false,
+      "points_count": 5183,
+      "indexed_vectors_count": 5120,
+      "status": "green",
+      "segments_count": 7,
+      "disk_bytes": 51748864,
+      "raw": {
+        "points_count": 5183,
+        "indexed_vectors_count": 5120,
+        "status": "green",
+        "optimizer_status": "ok"
+      },
+      "disk_mb": 49.352
+    },
+    "pq_x16_rescore": {
+      "collection": "scifact_dense_pq",
+      "rescore": true,
+      "points_count": 5183,
+      "indexed_vectors_count": 5120,
+      "status": "green",
+      "segments_count": 8,
+      "disk_bytes": 68939776,
+      "raw": {
+        "points_count": 5183,
+        "indexed_vectors_count": 5120,
+        "status": "green",
+        "optimizer_status": "ok"
+      },
+      "disk_mb": 65.746
+    },
+    "pq_x16_no_rescore": {
+      "collection": "scifact_dense_pq",
+      "rescore": false,
+      "points_count": 5183,
+      "indexed_vectors_count": 5120,
+      "status": "green",
+      "segments_count": 8,
+      "disk_bytes": 68939776,
+      "raw": {
+        "points_count": 5183,
+        "indexed_vectors_count": 5120,
+        "status": "green",
+        "optimizer_status": "ok"
+      },
+      "disk_mb": 65.746
+    }
+  }
+}

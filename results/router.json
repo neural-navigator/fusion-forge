@@ -1,0 +1,385 @@
+{
+  "runs": [
+    {
+      "name": "router_dense",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.7445,
+        "ndcg@100": 0.7664,
+        "recall@10": 0.8676,
+        "recall@100": 0.9643,
+        "precision@10": 0.098,
+        "mrr@10": 0.7125,
+        "map@100": 0.7057
+      },
+      "latency_ms": {
+        "mean": 7.25,
+        "p50": 7.17,
+        "p95": 8.57
+      },
+      "extra": {
+        "route_counts": {
+          "dense": 300
+        }
+      }
+    },
+    {
+      "name": "router_bm42",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.6118,
+        "ndcg@100": 0.6406,
+        "recall@10": 0.7411,
+        "recall@100": 0.8743,
+        "precision@10": 0.0827,
+        "mrr@10": 0.5767,
+        "map@100": 0.5717
+      },
+      "latency_ms": {
+        "mean": 2.67,
+        "p50": 2.67,
+        "p95": 3.26
+      },
+      "extra": {
+        "route_counts": {
+          "bm42": 300
+        }
+      }
+    },
+    {
+      "name": "router_hybrid",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.7239,
+        "ndcg@100": 0.742,
+        "recall@10": 0.8836,
+        "recall@100": 0.9627,
+        "precision@10": 0.0993,
+        "mrr@10": 0.6807,
+        "map@100": 0.6718
+      },
+      "latency_ms": {
+        "mean": 8.85,
+        "p50": 8.81,
+        "p95": 10.4
+      },
+      "extra": {
+        "route_counts": {
+          "hybrid": 300
+        }
+      }
+    },
+    {
+      "name": "router_heuristic",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.7157,
+        "ndcg@100": 0.736,
+        "recall@10": 0.8676,
+        "recall@100": 0.961,
+        "precision@10": 0.0977,
+        "mrr@10": 0.6755,
+        "map@100": 0.6668
+      },
+      "latency_ms": {
+        "mean": 7.14,
+        "p50": 7.57,
+        "p95": 9.85
+      },
+      "extra": {
+        "route_counts": {
+          "dense": 124,
+          "bm42": 51,
+          "hybrid": 125
+        }
+      }
+    },
+    {
+      "name": "router_embed",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.7102,
+        "ndcg@100": 0.7334,
+        "recall@10": 0.8359,
+        "recall@100": 0.941,
+        "precision@10": 0.0947,
+        "mrr@10": 0.678,
+        "map@100": 0.6702
+      },
+      "latency_ms": {
+        "mean": 6.16,
+        "p50": 6.97,
+        "p95": 9.27
+      },
+      "extra": {
+        "route_counts": {
+          "dense": 186,
+          "bm42": 83,
+          "hybrid": 31
+        }
+      }
+    },
+    {
+      "name": "router_combined",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.7114,
+        "ndcg@100": 0.734,
+        "recall@10": 0.8426,
+        "recall@100": 0.9443,
+        "precision@10": 0.0953,
+        "mrr@10": 0.6767,
+        "map@100": 0.6697
+      },
+      "latency_ms": {
+        "mean": 6.45,
+        "p50": 7.06,
+        "p95": 9.34
+      },
+      "extra": {
+        "route_counts": {
+          "dense": 186,
+          "bm42": 68,
+          "hybrid": 46
+        }
+      }
+    },
+    {
+      "name": "router_oracle",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.7952,
+        "ndcg@100": 0.8102,
+        "recall@10": 0.9042,
+        "recall@100": 0.9727,
+        "precision@10": 0.102,
+        "mrr@10": 0.7657,
+        "map@100": 0.7594
+      },
+      "latency_ms": {
+        "mean": 6.7,
+        "p50": 7.04,
+        "p95": 8.58
+      },
+      "extra": {
+        "route_counts": {
+          "dense": 258,
+          "bm42": 36,
+          "hybrid": 6
+        }
+      }
+    }
+  ],
+  "route_vs_oracle": {
+    "heuristic": {
+      "dense": {
+        "dense": 104,
+        "bm42": 46,
+        "hybrid": 108
+      },
+      "bm42": {
+        "dense": 18,
+        "bm42": 4,
+        "hybrid": 14
+      },
+      "hybrid": {
+        "dense": 2,
+        "bm42": 1,
+        "hybrid": 3
+      }
+    },
+    "embed": {
+      "dense": {
+        "dense": 159,
+        "bm42": 72,
+        "hybrid": 27
+      },
+      "bm42": {
+        "dense": 23,
+        "bm42": 10,
+        "hybrid": 3
+      },
+      "hybrid": {
+        "dense": 4,
+        "bm42": 1,
+        "hybrid": 1
+      }
+    },
+    "combined": {
+      "dense": {
+        "dense": 157,
+        "bm42": 62,
+        "hybrid": 39
+      },
+      "bm42": {
+        "dense": 25,
+        "bm42": 6,
+        "hybrid": 5
+      },
+      "hybrid": {
+        "dense": 4,
+        "bm42": 0,
+        "hybrid": 2
+      }
+    }
+  },
+  "sample_decisions": [
+    {
+      "qid": "1",
+      "text": "0-dimensional biomaterials show inductive properties.",
+      "heuristic": "bm42",
+      "embed": "bm42",
+      "combined": "bm42",
+      "oracle": "dense",
+      "ndcg": {
+        "dense": 0.0,
+        "bm42": 0.0,
+        "hybrid": 0.0
+      }
+    },
+    {
+      "qid": "3",
+      "text": "1,000 genomes project enables mapping of genetic sequence variation consisting of rare variants with larger penetrance effects than common variants.",
+      "heuristic": "hybrid",
+      "embed": "bm42",
+      "combined": "bm42",
+      "oracle": "bm42",
+      "ndcg": {
+        "dense": 0.2891,
+        "bm42": 0.6309,
+        "hybrid": 0.5
+      }
+    },
+    {
+      "qid": "5",
+      "text": "1/2000 in UK have abnormal PrP positivity.",
+      "heuristic": "bm42",
+      "embed": "dense",
+      "combined": "dense",
+      "oracle": "dense",
+      "ndcg": {
+        "dense": 1.0,
+        "bm42": 0.0,
+        "hybrid": 0.6309
+      }
+    },
+    {
+      "qid": "13",
+      "text": "5% of perinatal mortality is due to low birth weight.",
+      "heuristic": "dense",
+      "embed": "dense",
+      "combined": "dense",
+      "oracle": "dense",
+      "ndcg": {
+        "dense": 0.301,
+        "bm42": 0.0,
+        "hybrid": 0.0
+      }
+    },
+    {
+      "qid": "36",
+      "text": "A deficiency of vitamin B12 increases blood levels of homocysteine.",
+      "heuristic": "bm42",
+      "embed": "dense",
+      "combined": "dense",
+      "oracle": "dense",
+      "ndcg": {
+        "dense": 0.3066,
+        "bm42": 0.0,
+        "hybrid": 0.2641
+      }
+    },
+    {
+      "qid": "42",
+      "text": "A high microerythrocyte count raises vulnerability to severe anemia in homozygous alpha (+)- thalassemia trait subjects.",
+      "heuristic": "hybrid",
+      "embed": "bm42",
+      "combined": "bm42",
+      "oracle": "dense",
+      "ndcg": {
+        "dense": 1.0,
+        "bm42": 1.0,
+        "hybrid": 1.0
+      }
+    },
+    {
+      "qid": "48",
+      "text": "A total of 1,000 people in the UK are asymptomatic carriers of vCJD infection.",
+      "heuristic": "dense",
+      "embed": "bm42",
+      "combined": "dense",
+      "oracle": "dense",
+      "ndcg": {
+        "dense": 0.3562,
+        "bm42": 0.0,
+        "hybrid": 0.3333
+      }
+    },
+    {
+      "qid": "49",
+      "text": "ADAR1 binds to Dicer to cleave pre-miRNA.",
+      "heuristic": "hybrid",
+      "embed": "dense",
+      "combined": "dense",
+      "oracle": "dense",
+      "ndcg": {
+        "dense": 1.0,
+        "bm42": 1.0,
+        "hybrid": 1.0
+      }
+    },
+    {
+      "qid": "50",
+      "text": "AIRE is expressed in some skin tumors.",
+      "heuristic": "dense",
+      "embed": "bm42",
+      "combined": "bm42",
+      "oracle": "dense",
+      "ndcg": {
+        "dense": 1.0,
+        "bm42": 1.0,
+        "hybrid": 1.0
+      }
+    },
+    {
+      "qid": "51",
+      "text": "ALDH1 expression is associated with better breast cancer outcomes.",
+      "heuristic": "dense",
+      "embed": "dense",
+      "combined": "dense",
+      "oracle": "dense",
+      "ndcg": {
+        "dense": 1.0,
+        "bm42": 1.0,
+        "hybrid": 1.0
+      }
+    },
+    {
+      "qid": "53",
+      "text": "ALDH1 expression is associated with poorer prognosis in breast cancer.",
+      "heuristic": "dense",
+      "embed": "dense",
+      "combined": "dense",
+      "oracle": "dense",
+      "ndcg": {
+        "dense": 1.0,
+        "bm42": 1.0,
+        "hybrid": 1.0
+      }
+    },
+    {
+      "qid": "54",
+      "text": "AMP-activated protein kinase (AMPK) activation increases inflammation-related fibrosis in the lungs.",
+      "heuristic": "bm42",
+      "embed": "dense",
+      "combined": "dense",
+      "oracle": "dense",
+      "ndcg": {
+        "dense": 1.0,
+        "bm42": 0.4307,
+        "hybrid": 1.0
+      }
+    }
+  ],
+  "notes": "Routes send each query to dense (BGE), BM42, or hybrid RRF. Oracle picks the backend with the best nDCG@10 per query (upper bound)."
+}

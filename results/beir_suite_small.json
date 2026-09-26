@@ -1,0 +1,53 @@
+{
+  "note": "Backup of the eight small/medium BEIR units evaluated before CQADupStack overwrote beir_suite.json on disk. The live run_all process still holds these in memory.",
+  "records": [
+    {"dataset": "nfcorpus", "n_docs": 3633, "n_eval_queries": 323, "status": "evaluated",
+     "eval": {"n_queries": 323, "collection": "beir_nfcorpus_hyb", "runs": [
+       {"name": "dense_bge_base", "metrics": {"ndcg@10": 0.3735, "ndcg@100": 0.3478, "recall@10": 0.1784, "recall@100": 0.3398, "precision@10": 0.2796, "mrr@10": 0.5646, "map@100": 0.182}, "latency_ms": {"mean": 8.01, "p50": 7.87, "p95": 9.93}},
+       {"name": "bm42_idf", "metrics": {"ndcg@10": 0.3068, "ndcg@100": 0.2607, "recall@10": 0.1429, "recall@100": 0.2301, "precision@10": 0.2201, "mrr@10": 0.5168, "map@100": 0.1373}, "latency_ms": {"mean": 4.49, "p50": 5.2, "p95": 6.84}},
+       {"name": "hybrid_rrf", "metrics": {"ndcg@10": 0.3676, "ndcg@100": 0.3314, "recall@10": 0.1822, "recall@100": 0.3039, "precision@10": 0.269, "mrr@10": 0.5697, "map@100": 0.177}, "latency_ms": {"mean": 7.86, "p50": 7.81, "p95": 9.44}}
+     ]}},
+    {"dataset": "scifact", "n_docs": 5183, "n_eval_queries": 300, "status": "evaluated",
+     "eval": {"n_queries": 300, "collection": "beir_scifact_hyb", "runs": [
+       {"name": "dense_bge_base", "metrics": {"ndcg@10": 0.7421, "ndcg@100": 0.7625, "recall@10": 0.8709, "recall@100": 0.961, "precision@10": 0.0983, "mrr@10": 0.7069, "map@100": 0.7009}, "latency_ms": {"mean": 9.56, "p50": 9.15, "p95": 12.78}},
+       {"name": "bm42_idf", "metrics": {"ndcg@10": 0.6118, "ndcg@100": 0.6406, "recall@10": 0.7411, "recall@100": 0.8743, "precision@10": 0.0827, "mrr@10": 0.5767, "map@100": 0.5717}, "latency_ms": {"mean": 6.25, "p50": 6.19, "p95": 7.5}},
+       {"name": "hybrid_rrf", "metrics": {"ndcg@10": 0.728, "ndcg@100": 0.745, "recall@10": 0.8836, "recall@100": 0.956, "precision@10": 0.0993, "mrr@10": 0.6863, "map@100": 0.6772}, "latency_ms": {"mean": 9.34, "p50": 9.19, "p95": 11.77}}
+     ]}},
+    {"dataset": "arguana", "n_docs": 8674, "n_eval_queries": 1406, "status": "evaluated",
+     "eval": {"n_queries": 1406, "collection": "beir_arguana_hyb", "runs": [
+       {"name": "dense_bge_base", "metrics": {"ndcg@10": 0.4506, "ndcg@100": 0.4786, "recall@10": 0.8734, "recall@100": 0.9929, "precision@10": 0.0873, "mrr@10": 0.3135, "map@100": 0.3204}, "latency_ms": {"mean": 8.08, "p50": 7.84, "p95": 10.16}},
+       {"name": "bm42_idf", "metrics": {"ndcg@10": 0.3331, "ndcg@100": 0.39, "recall@10": 0.6999, "recall@100": 0.9545, "precision@10": 0.07, "mrr@10": 0.2181, "map@100": 0.2308}, "latency_ms": {"mean": 5.73, "p50": 5.6, "p95": 7.51}},
+       {"name": "hybrid_rrf", "metrics": {"ndcg@10": 0.4395, "ndcg@100": 0.4695, "recall@10": 0.8634, "recall@100": 0.99, "precision@10": 0.0863, "mrr@10": 0.303, "map@100": 0.3105}, "latency_ms": {"mean": 7.32, "p50": 7.21, "p95": 9.08}}
+     ]}},
+    {"dataset": "fiqa", "n_docs": 57638, "n_eval_queries": 648, "status": "evaluated",
+     "eval": {"n_queries": 648, "collection": "beir_fiqa_hyb", "runs": [
+       {"name": "dense_bge_base", "metrics": {"ndcg@10": 0.3986, "ndcg@100": 0.4669, "recall@10": 0.4733, "recall@100": 0.7245, "precision@10": 0.1113, "mrr@10": 0.477, "map@100": 0.3382}, "latency_ms": {"mean": 8.15, "p50": 5.23, "p95": 21.41}},
+       {"name": "bm42_idf", "metrics": {"ndcg@10": 0.2236, "ndcg@100": 0.2809, "recall@10": 0.2744, "recall@100": 0.4958, "precision@10": 0.0627, "mrr@10": 0.2806, "map@100": 0.1817}, "latency_ms": {"mean": 2.84, "p50": 2.72, "p95": 4.12}},
+       {"name": "hybrid_rrf", "metrics": {"ndcg@10": 0.3709, "ndcg@100": 0.4336, "recall@10": 0.4576, "recall@100": 0.6869, "precision@10": 0.1068, "mrr@10": 0.4398, "map@100": 0.3061}, "latency_ms": {"mean": 6.16, "p50": 5.67, "p95": 7.78}}
+     ]}},
+    {"dataset": "scidocs", "n_docs": 25657, "n_eval_queries": 1000, "status": "evaluated",
+     "eval": {"n_queries": 1000, "collection": "beir_scidocs_hyb", "runs": [
+       {"name": "dense_bge_base", "metrics": {"ndcg@10": 0.2178, "ndcg@100": 0.3056, "recall@10": 0.2318, "recall@100": 0.4928, "precision@10": 0.1143, "mrr@10": 0.3572, "map@100": 0.1542}, "latency_ms": {"mean": 6.4, "p50": 5.63, "p95": 8.09}},
+       {"name": "bm42_idf", "metrics": {"ndcg@10": 0.1425, "ndcg@100": 0.2106, "recall@10": 0.1491, "recall@100": 0.3512, "precision@10": 0.0735, "mrr@10": 0.2509, "map@100": 0.0978}, "latency_ms": {"mean": 2.72, "p50": 2.7, "p95": 3.55}},
+       {"name": "hybrid_rrf", "metrics": {"ndcg@10": 0.2021, "ndcg@100": 0.2809, "recall@10": 0.2175, "recall@100": 0.4457, "precision@10": 0.1072, "mrr@10": 0.3362, "map@100": 0.1406}, "latency_ms": {"mean": 6.3, "p50": 6.19, "p95": 8.08}}
+     ]}},
+    {"dataset": "trec-covid", "n_docs": 171332, "n_eval_queries": 50, "status": "evaluated",
+     "eval": {"n_queries": 50, "collection": "beir_trec_covid_hyb", "runs": [
+       {"name": "dense_bge_base", "metrics": {"ndcg@10": 0.7595, "ndcg@100": 0.5711, "recall@10": 0.0218, "recall@100": 0.1429, "precision@10": 0.822, "mrr@10": 0.929, "map@100": 0.1115}, "latency_ms": {"mean": 54.93, "p50": 45.47, "p95": 111.01}},
+       {"name": "bm42_idf", "metrics": {"ndcg@10": 0.4414, "ndcg@100": 0.3149, "recall@10": 0.0137, "recall@100": 0.0892, "precision@10": 0.502, "mrr@10": 0.6849, "map@100": 0.0544}, "latency_ms": {"mean": 4.25, "p50": 4.33, "p95": 5.12}},
+       {"name": "hybrid_rrf", "metrics": {"ndcg@10": 0.6115, "ndcg@100": 0.457, "recall@10": 0.0184, "recall@100": 0.1196, "precision@10": 0.682, "mrr@10": 0.8317, "map@100": 0.0817}, "latency_ms": {"mean": 5.43, "p50": 5.34, "p95": 6.45}}
+     ]}},
+    {"dataset": "quora", "n_docs": 522931, "n_eval_queries": 10000, "status": "evaluated",
+     "eval": {"n_queries": 10000, "collection": "beir_quora_hyb", "runs": [
+       {"name": "dense_bge_base", "metrics": {"ndcg@10": 0.885, "ndcg@100": 0.8965, "recall@10": 0.9555, "recall@100": 0.994, "precision@10": 0.1343, "mrr@10": 0.8771, "map@100": 0.854}, "latency_ms": {"mean": 7.34, "p50": 4.89, "p95": 14.82}},
+       {"name": "bm42_idf", "metrics": {"ndcg@10": 0.6949, "ndcg@100": 0.7278, "recall@10": 0.8201, "recall@100": 0.9507, "precision@10": 0.1101, "mrr@10": 0.6755, "map@100": 0.6492}, "latency_ms": {"mean": 3.76, "p50": 3.49, "p95": 6.29}},
+       {"name": "hybrid_rrf", "metrics": {"ndcg@10": 0.8539, "ndcg@100": 0.867, "recall@10": 0.9508, "recall@100": 0.9943, "precision@10": 0.132, "mrr@10": 0.8411, "map@100": 0.8125}, "latency_ms": {"mean": 6.17, "p50": 6.1, "p95": 7.56}}
+     ]}},
+    {"dataset": "webis-touche2020", "n_docs": 382545, "n_eval_queries": 49, "status": "evaluated",
+     "eval": {"n_queries": 49, "collection": "beir_webis_touche2020_hyb", "runs": [
+       {"name": "dense_bge_base", "metrics": {"ndcg@10": 0.247, "ndcg@100": 0.3699, "recall@10": 0.1644, "recall@100": 0.4876, "precision@10": 0.2265, "mrr@10": 0.4659, "map@100": 0.1629}, "latency_ms": {"mean": 75.29, "p50": 71.57, "p95": 113.94}},
+       {"name": "bm42_idf", "metrics": {"ndcg@10": 0.0666, "ndcg@100": 0.1784, "recall@10": 0.0526, "recall@100": 0.311, "precision@10": 0.0653, "mrr@10": 0.1232, "map@100": 0.0516}, "latency_ms": {"mean": 5.08, "p50": 5.1, "p95": 6.75}},
+       {"name": "hybrid_rrf", "metrics": {"ndcg@10": 0.1633, "ndcg@100": 0.2831, "recall@10": 0.1182, "recall@100": 0.4039, "precision@10": 0.1592, "mrr@10": 0.3014, "map@100": 0.1091}, "latency_ms": {"mean": 6.95, "p50": 6.82, "p95": 8.34}}
+     ]}}
+  ]
+}

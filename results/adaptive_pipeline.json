@@ -1,0 +1,1287 @@
+{
+  "dataset": "scifact",
+  "protocol": "Train (809) selects sparse-off margin, list-conditioned scorer, and whether head/title rerank help. Frozen on test (300). Dense is always retrieved; BM42 is skipped when the semantic router is confidently dense.",
+  "stages": {
+    "router_sparse_gate": "combined prototype+heuristic route; skip sparse iff route=dense and score gap \u2265 tau. Dense search always on (BM42-only is worse on SciFact).",
+    "list_conditioned_scorer": "From the two lists: overlap@10, unique sparse-in-top-10, top-1/top-2 margins. Either a piecewise operator (bucket) or \u03b1(list) in the rank\u2013score mix u = mix(\u03b1 s\u0303_d + (1-\u03b1) s\u0303_s) + (1-mix)(\u03b1/(\u03ba+r_d)+(1-\u03b1)/(\u03ba+r_s)).",
+    "head_rerank": "Re-minmax the fused top-50 and apply the same operator (sharper head). Optional title-term overlap. Optional MS MARCO MiniLM CE (ablation)."
+  },
+  "train": {
+    "winner_formula_ndcg@10": 0.779,
+    "best_alpha": {
+      "coef": {
+        "a0": 0.72,
+        "a_ov": 0.24,
+        "a_m": 0.3,
+        "a_u": 0.0,
+        "a_lex": 0.0
+      },
+      "train_ndcg@10": 0.7837
+    },
+    "best_bucket": {
+      "t_ov": 0.5,
+      "t_u": 0.4,
+      "t_m": 0.08,
+      "train_ndcg@10": 0.7753,
+      "kinds": {
+        "rank_score": 667,
+        "minmax_linear": 141,
+        "dense": 1
+      }
+    },
+    "selected_mode": "alpha",
+    "gate_grid": [
+      {
+        "tau": 9.0,
+        "train_ndcg@10": 0.7837,
+        "skip_rate": 0.0
+      },
+      {
+        "tau": 0.12,
+        "train_ndcg@10": 0.7793,
+        "skip_rate": 0.5624
+      },
+      {
+        "tau": 0.18,
+        "train_ndcg@10": 0.7791,
+        "skip_rate": 0.5229
+      },
+      {
+        "tau": 0.04,
+        "train_ndcg@10": 0.7766,
+        "skip_rate": 0.5958
+      },
+      {
+        "tau": 0.06,
+        "train_ndcg@10": 0.7766,
+        "skip_rate": 0.5958
+      },
+      {
+        "tau": 0.08,
+        "train_ndcg@10": 0.7765,
+        "skip_rate": 0.5859
+      }
+    ],
+    "best_gate": {
+      "tau": 9.0,
+      "train_ndcg@10": 0.7837,
+      "skip_rate": 0.0
+    },
+    "head_rerank_train_ndcg@10": 0.78,
+    "title_rerank_train_ndcg@10": 0.4526,
+    "use_head_rerank": false,
+    "use_title_rerank": false
+  },
+  "test_runs": [
+    {
+      "name": "list_scorer_alpha_always_sparse",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.7533,
+        "ndcg@100": 0.771,
+        "recall@10": 0.8892,
+        "recall@100": 0.9693,
+        "precision@10": 0.1003,
+        "mrr@10": 0.7171,
+        "map@100": 0.709
+      },
+      "latency_ms": {
+        "mean": 13.15,
+        "p50": 13.1,
+        "p95": 15.08,
+        "note": "Qdrant dense (+ sparse if gated on); excludes embed/rerank model time"
+      },
+      "extra": {
+        "sparse_skip_rate": 0.0,
+        "kind_counts": {
+          "rank_score": 300
+        },
+        "sample": [
+          {
+            "qid": "1",
+            "sparse_on": true,
+            "route": "bm42",
+            "kind": "rank_score",
+            "params": {
+              "a": 0.6899,
+              "mix": 0.75,
+              "kappa": 20
+            },
+            "ov10": 0.0,
+            "ov20": 0.1,
+            "d_margin": 0.09351216867871359,
+            "s_margin": 0.19428169019910357,
+            "sparse_unique": 1.0,
+            "gap": 0.2984,
+            "combined": {
+              "dense": 0.5890742355585099,
+              "bm42": 0.8875000000000001,
+              "hybrid": 0.2025
+            }
+          },
+          {
+            "qid": "3",
+            "sparse_on": true,
+            "route": "bm42",
+            "kind": "rank_score",
+            "params": {
+              "a": 0.8312,
+              "mix": 0.75,
+              "kappa": 20
+            },
+            "ov10": 0.5,
+            "ov20": 0.4,
+            "d_margin": 0.02352473394416066,
+            "s_margin": 0.05274016930244685,
+            "sparse_unique": 0.4,
+            "gap": 0.2932,
+            "combined": {
+              "dense": 0.2025,
+              "bm42": 0.7032142857142858,
+              "hybrid": 0.4099986383318901
+            }
+          },
+          {
+            "qid": "5",
+            "sparse_on": true,
+            "route": "dense",
+            "kind": "rank_score",
+            "params": {
+              "a": 0.7213,
+              "mix": 0.75,
+              "kappa": 20
+            },
+            "ov10": 0.1,
+            "ov20": 0.1,
+            "d_margin": 0.08458474913497327,
+            "s_margin": 0.1602889373902454,
+            "sparse_unique": 0.9,
+            "gap": 0.2909,
+            "combined": {
+              "dense": 0.7300000000000001,
+              "bm42": 0.33749999999999997,
+              "hybrid": 0.4390944504737854
+            }
+          },
+          {
+            "qid": "13",
+            "sparse_on": true,
+            "route": "dense",
+            "kind": "rank_score",
+            "params": {
+              "a": 0.6926,
+              "mix": 0.75,
+              "kappa": 20
+            },
+            "ov10": 0.1,
+            "ov20": 0.35,
+            "d_margin": 0.011541874409294217,
+            "s_margin": 0.18450381295955365,
+            "sparse_unique": 0.7,
+            "gap": 0.312,
+            "combined": {
+              "dense": 1.0,
+              "bm42": 0.12150000000000001,
+              "hybrid": 0.6879735606908799
+            }
+          },
+          {
+            "qid": "36",
+            "sparse_on": true,
+            "route": "dense",
+            "kind": "rank_score",
+            "params": {
+              "a": 0.8053,
+              "mix": 0.75,
+              "kappa": 20
+            },
+            "ov10": 0.7,
+            "ov20": 0.8,
+            "d_margin": 0.016468160739254945,
+            "s_margin": 0.29935927517970906,
+            "sparse_unique": 0.0,
+            "gap": 0.3078,
+            "combined": {
+              "dense": 0.7345,
+              "bm42": 0.26550000000000007,
+              "hybrid": 0.4266524875164032
+            }
+          },
+          {
+            "qid": "42",
+            "sparse_on": true,
+            "route": "bm42",
+            "kind": "rank_score",
+            "params": {
+              "a": 0.7157,
+              "mix": 0.75,
+              "kappa": 20
+            },
+            "ov10": 0.3,
+            "ov20": 0.3,
+            "d_margin": 0.2608388524077295,
+            "s_margin": 0.520716297055216,
+            "sparse_unique": 0.5,
+            "gap": 0.283,
+            "combined": {
+              "dense": 0.2025,
+              "bm42": 0.7135,
+              "hybrid": 0.43049806147813796
+            }
+          },
+          {
+            "qid": "48",
+            "sparse_on": true,
+            "route": "dense",
+            "kind": "rank_score",
+            "params": {
+              "a": 0.7171,
+              "mix": 0.75,
+              "kappa": 20
+            },
+            "ov10": 0.2,
+            "ov20": 0.1,
+            "d_margin": 0.03931854318398198,
+            "s_margin": 0.21078851489811168,
+            "sparse_unique": 0.8,
+            "gap": 0.1799,
+            "combined": {
+              "dense": 0.9413589596748353,
+              "bm42": 0.7615000000000001,
+              "hybrid": 0.29250000000000004
+            }
+          },
+          {
+            "qid": "49",
+            "sparse_on": true,
+            "route": "dense",
+            "kind": "rank_score",
+            "params": {
+              "a": 0.8405,
+              "mix": 0.75,
+              "kappa": 20
+            },
+            "ov10": 0.5,
+            "ov20": 0.45,
+            "d_margin": 0.3758173190764291,
+            "s_margin": 0.3741228430642054,
+            "sparse_unique": 0.3,
+            "gap": 0.0944,
+            "combined": {
+              "dense": 0.7300000000000001,
+              "bm42": 0.6355927437543869,
+              "hybrid": 0.2025
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "router_plus_list_scorer",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.7533,
+        "ndcg@100": 0.771,
+        "recall@10": 0.8892,
+        "recall@100": 0.9693,
+        "precision@10": 0.1003,
+        "mrr@10": 0.7171,
+        "map@100": 0.709
+      },
+      "latency_ms": {
+        "mean": 13.15,
+        "p50": 13.1,
+        "p95": 15.08,
+        "note": "Qdrant dense (+ sparse if gated on); excludes embed/rerank model time"
+      },
+      "extra": {
+        "sparse_skip_rate": 0.0,
+        "kind_counts": {
+          "rank_score": 300
+        },
+        "sample": [
+          {
+            "qid": "1",
+            "sparse_on": true,
+            "route": "bm42",
+            "kind": "rank_score",
+            "params": {
+              "a": 0.6899,
+              "mix": 0.75,
+              "kappa": 20
+            },
+            "ov10": 0.0,
+            "ov20": 0.1,
+            "d_margin": 0.09351216867871359,
+            "s_margin": 0.19428169019910357,
+            "sparse_unique": 1.0,
+            "gap": 0.2984,
+            "combined": {
+              "dense": 0.5890742355585099,
+              "bm42": 0.8875000000000001,
+              "hybrid": 0.2025
+            }
+          },
+          {
+            "qid": "3",
+            "sparse_on": true,
+            "route": "bm42",
+            "kind": "rank_score",
+            "params": {
+              "a": 0.8312,
+              "mix": 0.75,
+              "kappa": 20
+            },
+            "ov10": 0.5,
+            "ov20": 0.4,
+            "d_margin": 0.02352473394416066,
+            "s_margin": 0.05274016930244685,
+            "sparse_unique": 0.4,
+            "gap": 0.2932,
+            "combined": {
+              "dense": 0.2025,
+              "bm42": 0.7032142857142858,
+              "hybrid": 0.4099986383318901
+            }
+          },
+          {
+            "qid": "5",
+            "sparse_on": true,
+            "route": "dense",
+            "kind": "rank_score",
+            "params": {
+              "a": 0.7213,
+              "mix": 0.75,
+              "kappa": 20
+            },
+            "ov10": 0.1,
+            "ov20": 0.1,
+            "d_margin": 0.08458474913497327,
+            "s_margin": 0.1602889373902454,
+            "sparse_unique": 0.9,
+            "gap": 0.2909,
+            "combined": {
+              "dense": 0.7300000000000001,
+              "bm42": 0.33749999999999997,
+              "hybrid": 0.4390944504737854
+            }
+          },
+          {
+            "qid": "13",
+            "sparse_on": true,
+            "route": "dense",
+            "kind": "rank_score",
+            "params": {
+              "a": 0.6926,
+              "mix": 0.75,
+              "kappa": 20
+            },
+            "ov10": 0.1,
+            "ov20": 0.35,
+            "d_margin": 0.011541874409294217,
+            "s_margin": 0.18450381295955365,
+            "sparse_unique": 0.7,
+            "gap": 0.312,
+            "combined": {
+              "dense": 1.0,
+              "bm42": 0.12150000000000001,
+              "hybrid": 0.6879735606908799
+            }
+          },
+          {
+            "qid": "36",
+            "sparse_on": true,
+            "route": "dense",
+            "kind": "rank_score",
+            "params": {
+              "a": 0.8053,
+              "mix": 0.75,
+              "kappa": 20
+            },
+            "ov10": 0.7,
+            "ov20": 0.8,
+            "d_margin": 0.016468160739254945,
+            "s_margin": 0.29935927517970906,
+            "sparse_unique": 0.0,
+            "gap": 0.3078,
+            "combined": {
+              "dense": 0.7345,
+              "bm42": 0.26550000000000007,
+              "hybrid": 0.4266524875164032
+            }
+          },
+          {
+            "qid": "42",
+            "sparse_on": true,
+            "route": "bm42",
+            "kind": "rank_score",
+            "params": {
+              "a": 0.7157,
+              "mix": 0.75,
+              "kappa": 20
+            },
+            "ov10": 0.3,
+            "ov20": 0.3,
+            "d_margin": 0.2608388524077295,
+            "s_margin": 0.520716297055216,
+            "sparse_unique": 0.5,
+            "gap": 0.283,
+            "combined": {
+              "dense": 0.2025,
+              "bm42": 0.7135,
+              "hybrid": 0.43049806147813796
+            }
+          },
+          {
+            "qid": "48",
+            "sparse_on": true,
+            "route": "dense",
+            "kind": "rank_score",
+            "params": {
+              "a": 0.7171,
+              "mix": 0.75,
+              "kappa": 20
+            },
+            "ov10": 0.2,
+            "ov20": 0.1,
+            "d_margin": 0.03931854318398198,
+            "s_margin": 0.21078851489811168,
+            "sparse_unique": 0.8,
+            "gap": 0.1799,
+            "combined": {
+              "dense": 0.9413589596748353,
+              "bm42": 0.7615000000000001,
+              "hybrid": 0.29250000000000004
+            }
+          },
+          {
+            "qid": "49",
+            "sparse_on": true,
+            "route": "dense",
+            "kind": "rank_score",
+            "params": {
+              "a": 0.8405,
+              "mix": 0.75,
+              "kappa": 20
+            },
+            "ov10": 0.5,
+            "ov20": 0.45,
+            "d_margin": 0.3758173190764291,
+            "s_margin": 0.3741228430642054,
+            "sparse_unique": 0.3,
+            "gap": 0.0944,
+            "combined": {
+              "dense": 0.7300000000000001,
+              "bm42": 0.6355927437543869,
+              "hybrid": 0.2025
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "full_pipeline",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.7533,
+        "ndcg@100": 0.771,
+        "recall@10": 0.8892,
+        "recall@100": 0.9693,
+        "precision@10": 0.1003,
+        "mrr@10": 0.7171,
+        "map@100": 0.709
+      },
+      "latency_ms": {
+        "mean": 13.15,
+        "p50": 13.1,
+        "p95": 15.08,
+        "note": "Qdrant dense (+ sparse if gated on); excludes embed/rerank model time"
+      },
+      "extra": {
+        "sparse_skip_rate": 0.0,
+        "kind_counts": {
+          "rank_score": 300
+        },
+        "sample": [
+          {
+            "qid": "1",
+            "sparse_on": true,
+            "route": "bm42",
+            "kind": "rank_score",
+            "params": {
+              "a": 0.6899,
+              "mix": 0.75,
+              "kappa": 20
+            },
+            "ov10": 0.0,
+            "ov20": 0.1,
+            "d_margin": 0.09351216867871359,
+            "s_margin": 0.19428169019910357,
+            "sparse_unique": 1.0,
+            "gap": 0.2984,
+            "combined": {
+              "dense": 0.5890742355585099,
+              "bm42": 0.8875000000000001,
+              "hybrid": 0.2025
+            }
+          },
+          {
+            "qid": "3",
+            "sparse_on": true,
+            "route": "bm42",
+            "kind": "rank_score",
+            "params": {
+              "a": 0.8312,
+              "mix": 0.75,
+              "kappa": 20
+            },
+            "ov10": 0.5,
+            "ov20": 0.4,
+            "d_margin": 0.02352473394416066,
+            "s_margin": 0.05274016930244685,
+            "sparse_unique": 0.4,
+            "gap": 0.2932,
+            "combined": {
+              "dense": 0.2025,
+              "bm42": 0.7032142857142858,
+              "hybrid": 0.4099986383318901
+            }
+          },
+          {
+            "qid": "5",
+            "sparse_on": true,
+            "route": "dense",
+            "kind": "rank_score",
+            "params": {
+              "a": 0.7213,
+              "mix": 0.75,
+              "kappa": 20
+            },
+            "ov10": 0.1,
+            "ov20": 0.1,
+            "d_margin": 0.08458474913497327,
+            "s_margin": 0.1602889373902454,
+            "sparse_unique": 0.9,
+            "gap": 0.2909,
+            "combined": {
+              "dense": 0.7300000000000001,
+              "bm42": 0.33749999999999997,
+              "hybrid": 0.4390944504737854
+            }
+          },
+          {
+            "qid": "13",
+            "sparse_on": true,
+            "route": "dense",
+            "kind": "rank_score",
+            "params": {
+              "a": 0.6926,
+              "mix": 0.75,
+              "kappa": 20
+            },
+            "ov10": 0.1,
+            "ov20": 0.35,
+            "d_margin": 0.011541874409294217,
+            "s_margin": 0.18450381295955365,
+            "sparse_unique": 0.7,
+            "gap": 0.312,
+            "combined": {
+              "dense": 1.0,
+              "bm42": 0.12150000000000001,
+              "hybrid": 0.6879735606908799
+            }
+          },
+          {
+            "qid": "36",
+            "sparse_on": true,
+            "route": "dense",
+            "kind": "rank_score",
+            "params": {
+              "a": 0.8053,
+              "mix": 0.75,
+              "kappa": 20
+            },
+            "ov10": 0.7,
+            "ov20": 0.8,
+            "d_margin": 0.016468160739254945,
+            "s_margin": 0.29935927517970906,
+            "sparse_unique": 0.0,
+            "gap": 0.3078,
+            "combined": {
+              "dense": 0.7345,
+              "bm42": 0.26550000000000007,
+              "hybrid": 0.4266524875164032
+            }
+          },
+          {
+            "qid": "42",
+            "sparse_on": true,
+            "route": "bm42",
+            "kind": "rank_score",
+            "params": {
+              "a": 0.7157,
+              "mix": 0.75,
+              "kappa": 20
+            },
+            "ov10": 0.3,
+            "ov20": 0.3,
+            "d_margin": 0.2608388524077295,
+            "s_margin": 0.520716297055216,
+            "sparse_unique": 0.5,
+            "gap": 0.283,
+            "combined": {
+              "dense": 0.2025,
+              "bm42": 0.7135,
+              "hybrid": 0.43049806147813796
+            }
+          },
+          {
+            "qid": "48",
+            "sparse_on": true,
+            "route": "dense",
+            "kind": "rank_score",
+            "params": {
+              "a": 0.7171,
+              "mix": 0.75,
+              "kappa": 20
+            },
+            "ov10": 0.2,
+            "ov20": 0.1,
+            "d_margin": 0.03931854318398198,
+            "s_margin": 0.21078851489811168,
+            "sparse_unique": 0.8,
+            "gap": 0.1799,
+            "combined": {
+              "dense": 0.9413589596748353,
+              "bm42": 0.7615000000000001,
+              "hybrid": 0.29250000000000004
+            }
+          },
+          {
+            "qid": "49",
+            "sparse_on": true,
+            "route": "dense",
+            "kind": "rank_score",
+            "params": {
+              "a": 0.8405,
+              "mix": 0.75,
+              "kappa": 20
+            },
+            "ov10": 0.5,
+            "ov20": 0.45,
+            "d_margin": 0.3758173190764291,
+            "s_margin": 0.3741228430642054,
+            "sparse_unique": 0.3,
+            "gap": 0.0944,
+            "combined": {
+              "dense": 0.7300000000000001,
+              "bm42": 0.6355927437543869,
+              "hybrid": 0.2025
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "always_sparse_winner_formula",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.7527,
+        "ndcg@100": 0.77,
+        "recall@10": 0.8892,
+        "recall@100": 0.9693,
+        "precision@10": 0.1003,
+        "mrr@10": 0.7162,
+        "map@100": 0.7081
+      },
+      "latency_ms": {
+        "mean": 13.15,
+        "p50": 13.1,
+        "p95": 15.08,
+        "note": "Qdrant dense (+ sparse if gated on); excludes embed/rerank model time"
+      },
+      "extra": {
+        "sparse_skip_rate": 0.0,
+        "kind_counts": {
+          "rank_score": 300
+        },
+        "sample": [
+          {
+            "qid": "1",
+            "sparse_on": true,
+            "route": "bm42",
+            "kind": "rank_score",
+            "params": {
+              "a": 0.8,
+              "mix": 0.75,
+              "kappa": 20
+            },
+            "ov10": 0.0,
+            "ov20": 0.1,
+            "d_margin": 0.09351216867871359,
+            "s_margin": 0.19428169019910357,
+            "sparse_unique": 1.0,
+            "gap": 0.2984,
+            "combined": {
+              "dense": 0.5890742355585099,
+              "bm42": 0.8875000000000001,
+              "hybrid": 0.2025
+            }
+          },
+          {
+            "qid": "3",
+            "sparse_on": true,
+            "route": "bm42",
+            "kind": "rank_score",
+            "params": {
+              "a": 0.8,
+              "mix": 0.75,
+              "kappa": 20
+            },
+            "ov10": 0.5,
+            "ov20": 0.4,
+            "d_margin": 0.02352473394416066,
+            "s_margin": 0.05274016930244685,
+            "sparse_unique": 0.4,
+            "gap": 0.2932,
+            "combined": {
+              "dense": 0.2025,
+              "bm42": 0.7032142857142858,
+              "hybrid": 0.4099986383318901
+            }
+          },
+          {
+            "qid": "5",
+            "sparse_on": true,
+            "route": "dense",
+            "kind": "rank_score",
+            "params": {
+              "a": 0.8,
+              "mix": 0.75,
+              "kappa": 20
+            },
+            "ov10": 0.1,
+            "ov20": 0.1,
+            "d_margin": 0.08458474913497327,
+            "s_margin": 0.1602889373902454,
+            "sparse_unique": 0.9,
+            "gap": 0.2909,
+            "combined": {
+              "dense": 0.7300000000000001,
+              "bm42": 0.33749999999999997,
+              "hybrid": 0.4390944504737854
+            }
+          },
+          {
+            "qid": "13",
+            "sparse_on": true,
+            "route": "dense",
+            "kind": "rank_score",
+            "params": {
+              "a": 0.8,
+              "mix": 0.75,
+              "kappa": 20
+            },
+            "ov10": 0.1,
+            "ov20": 0.35,
+            "d_margin": 0.011541874409294217,
+            "s_margin": 0.18450381295955365,
+            "sparse_unique": 0.7,
+            "gap": 0.312,
+            "combined": {
+              "dense": 1.0,
+              "bm42": 0.12150000000000001,
+              "hybrid": 0.6879735606908799
+            }
+          },
+          {
+            "qid": "36",
+            "sparse_on": true,
+            "route": "dense",
+            "kind": "rank_score",
+            "params": {
+              "a": 0.8,
+              "mix": 0.75,
+              "kappa": 20
+            },
+            "ov10": 0.7,
+            "ov20": 0.8,
+            "d_margin": 0.016468160739254945,
+            "s_margin": 0.29935927517970906,
+            "sparse_unique": 0.0,
+            "gap": 0.3078,
+            "combined": {
+              "dense": 0.7345,
+              "bm42": 0.26550000000000007,
+              "hybrid": 0.4266524875164032
+            }
+          },
+          {
+            "qid": "42",
+            "sparse_on": true,
+            "route": "bm42",
+            "kind": "rank_score",
+            "params": {
+              "a": 0.8,
+              "mix": 0.75,
+              "kappa": 20
+            },
+            "ov10": 0.3,
+            "ov20": 0.3,
+            "d_margin": 0.2608388524077295,
+            "s_margin": 0.520716297055216,
+            "sparse_unique": 0.5,
+            "gap": 0.283,
+            "combined": {
+              "dense": 0.2025,
+              "bm42": 0.7135,
+              "hybrid": 0.43049806147813796
+            }
+          },
+          {
+            "qid": "48",
+            "sparse_on": true,
+            "route": "dense",
+            "kind": "rank_score",
+            "params": {
+              "a": 0.8,
+              "mix": 0.75,
+              "kappa": 20
+            },
+            "ov10": 0.2,
+            "ov20": 0.1,
+            "d_margin": 0.03931854318398198,
+            "s_margin": 0.21078851489811168,
+            "sparse_unique": 0.8,
+            "gap": 0.1799,
+            "combined": {
+              "dense": 0.9413589596748353,
+              "bm42": 0.7615000000000001,
+              "hybrid": 0.29250000000000004
+            }
+          },
+          {
+            "qid": "49",
+            "sparse_on": true,
+            "route": "dense",
+            "kind": "rank_score",
+            "params": {
+              "a": 0.8,
+              "mix": 0.75,
+              "kappa": 20
+            },
+            "ov10": 0.5,
+            "ov20": 0.45,
+            "d_margin": 0.3758173190764291,
+            "s_margin": 0.3741228430642054,
+            "sparse_unique": 0.3,
+            "gap": 0.0944,
+            "combined": {
+              "dense": 0.7300000000000001,
+              "bm42": 0.6355927437543869,
+              "hybrid": 0.2025
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "router_gate_winner_formula",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.7527,
+        "ndcg@100": 0.77,
+        "recall@10": 0.8892,
+        "recall@100": 0.9693,
+        "precision@10": 0.1003,
+        "mrr@10": 0.7162,
+        "map@100": 0.7081
+      },
+      "latency_ms": {
+        "mean": 13.15,
+        "p50": 13.1,
+        "p95": 15.08,
+        "note": "Qdrant dense (+ sparse if gated on); excludes embed/rerank model time"
+      },
+      "extra": {
+        "sparse_skip_rate": 0.0,
+        "kind_counts": {
+          "rank_score": 300
+        },
+        "sample": [
+          {
+            "qid": "1",
+            "sparse_on": true,
+            "route": "bm42",
+            "kind": "rank_score",
+            "params": {
+              "a": 0.8,
+              "mix": 0.75,
+              "kappa": 20
+            },
+            "ov10": 0.0,
+            "ov20": 0.1,
+            "d_margin": 0.09351216867871359,
+            "s_margin": 0.19428169019910357,
+            "sparse_unique": 1.0,
+            "gap": 0.2984,
+            "combined": {
+              "dense": 0.5890742355585099,
+              "bm42": 0.8875000000000001,
+              "hybrid": 0.2025
+            }
+          },
+          {
+            "qid": "3",
+            "sparse_on": true,
+            "route": "bm42",
+            "kind": "rank_score",
+            "params": {
+              "a": 0.8,
+              "mix": 0.75,
+              "kappa": 20
+            },
+            "ov10": 0.5,
+            "ov20": 0.4,
+            "d_margin": 0.02352473394416066,
+            "s_margin": 0.05274016930244685,
+            "sparse_unique": 0.4,
+            "gap": 0.2932,
+            "combined": {
+              "dense": 0.2025,
+              "bm42": 0.7032142857142858,
+              "hybrid": 0.4099986383318901
+            }
+          },
+          {
+            "qid": "5",
+            "sparse_on": true,
+            "route": "dense",
+            "kind": "rank_score",
+            "params": {
+              "a": 0.8,
+              "mix": 0.75,
+              "kappa": 20
+            },
+            "ov10": 0.1,
+            "ov20": 0.1,
+            "d_margin": 0.08458474913497327,
+            "s_margin": 0.1602889373902454,
+            "sparse_unique": 0.9,
+            "gap": 0.2909,
+            "combined": {
+              "dense": 0.7300000000000001,
+              "bm42": 0.33749999999999997,
+              "hybrid": 0.4390944504737854
+            }
+          },
+          {
+            "qid": "13",
+            "sparse_on": true,
+            "route": "dense",
+            "kind": "rank_score",
+            "params": {
+              "a": 0.8,
+              "mix": 0.75,
+              "kappa": 20
+            },
+            "ov10": 0.1,
+            "ov20": 0.35,
+            "d_margin": 0.011541874409294217,
+            "s_margin": 0.18450381295955365,
+            "sparse_unique": 0.7,
+            "gap": 0.312,
+            "combined": {
+              "dense": 1.0,
+              "bm42": 0.12150000000000001,
+              "hybrid": 0.6879735606908799
+            }
+          },
+          {
+            "qid": "36",
+            "sparse_on": true,
+            "route": "dense",
+            "kind": "rank_score",
+            "params": {
+              "a": 0.8,
+              "mix": 0.75,
+              "kappa": 20
+            },
+            "ov10": 0.7,
+            "ov20": 0.8,
+            "d_margin": 0.016468160739254945,
+            "s_margin": 0.29935927517970906,
+            "sparse_unique": 0.0,
+            "gap": 0.3078,
+            "combined": {
+              "dense": 0.7345,
+              "bm42": 0.26550000000000007,
+              "hybrid": 0.4266524875164032
+            }
+          },
+          {
+            "qid": "42",
+            "sparse_on": true,
+            "route": "bm42",
+            "kind": "rank_score",
+            "params": {
+              "a": 0.8,
+              "mix": 0.75,
+              "kappa": 20
+            },
+            "ov10": 0.3,
+            "ov20": 0.3,
+            "d_margin": 0.2608388524077295,
+            "s_margin": 0.520716297055216,
+            "sparse_unique": 0.5,
+            "gap": 0.283,
+            "combined": {
+              "dense": 0.2025,
+              "bm42": 0.7135,
+              "hybrid": 0.43049806147813796
+            }
+          },
+          {
+            "qid": "48",
+            "sparse_on": true,
+            "route": "dense",
+            "kind": "rank_score",
+            "params": {
+              "a": 0.8,
+              "mix": 0.75,
+              "kappa": 20
+            },
+            "ov10": 0.2,
+            "ov20": 0.1,
+            "d_margin": 0.03931854318398198,
+            "s_margin": 0.21078851489811168,
+            "sparse_unique": 0.8,
+            "gap": 0.1799,
+            "combined": {
+              "dense": 0.9413589596748353,
+              "bm42": 0.7615000000000001,
+              "hybrid": 0.29250000000000004
+            }
+          },
+          {
+            "qid": "49",
+            "sparse_on": true,
+            "route": "dense",
+            "kind": "rank_score",
+            "params": {
+              "a": 0.8,
+              "mix": 0.75,
+              "kappa": 20
+            },
+            "ov10": 0.5,
+            "ov20": 0.45,
+            "d_margin": 0.3758173190764291,
+            "s_margin": 0.3741228430642054,
+            "sparse_unique": 0.3,
+            "gap": 0.0944,
+            "combined": {
+              "dense": 0.7300000000000001,
+              "bm42": 0.6355927437543869,
+              "hybrid": 0.2025
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "dense_only",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.7421,
+        "ndcg@100": 0.7625,
+        "recall@10": 0.8709,
+        "recall@100": 0.961,
+        "precision@10": 0.0983,
+        "mrr@10": 0.7069,
+        "map@100": 0.7009
+      },
+      "latency_ms": {
+        "mean": 7.72,
+        "p50": 7.62,
+        "p95": 8.98,
+        "note": "Qdrant dense (+ sparse if gated on); excludes embed/rerank model time"
+      },
+      "extra": {
+        "sparse_skip_rate": 1.0,
+        "kind_counts": {
+          "dense": 300
+        },
+        "sample": [
+          {
+            "qid": "1",
+            "sparse_on": false,
+            "route": "bm42",
+            "kind": "dense",
+            "params": {},
+            "ov10": 0.0,
+            "ov20": 0.0,
+            "d_margin": 1.0,
+            "s_margin": 0.0,
+            "sparse_unique": 0.0,
+            "gap": 0.2984,
+            "combined": {
+              "dense": 0.5890742355585099,
+              "bm42": 0.8875000000000001,
+              "hybrid": 0.2025
+            }
+          },
+          {
+            "qid": "3",
+            "sparse_on": false,
+            "route": "bm42",
+            "kind": "dense",
+            "params": {},
+            "ov10": 0.0,
+            "ov20": 0.0,
+            "d_margin": 1.0,
+            "s_margin": 0.0,
+            "sparse_unique": 0.0,
+            "gap": 0.2932,
+            "combined": {
+              "dense": 0.2025,
+              "bm42": 0.7032142857142858,
+              "hybrid": 0.4099986383318901
+            }
+          },
+          {
+            "qid": "5",
+            "sparse_on": false,
+            "route": "dense",
+            "kind": "dense",
+            "params": {},
+            "ov10": 0.0,
+            "ov20": 0.0,
+            "d_margin": 1.0,
+            "s_margin": 0.0,
+            "sparse_unique": 0.0,
+            "gap": 0.2909,
+            "combined": {
+              "dense": 0.7300000000000001,
+              "bm42": 0.33749999999999997,
+              "hybrid": 0.4390944504737854
+            }
+          },
+          {
+            "qid": "13",
+            "sparse_on": false,
+            "route": "dense",
+            "kind": "dense",
+            "params": {},
+            "ov10": 0.0,
+            "ov20": 0.0,
+            "d_margin": 1.0,
+            "s_margin": 0.0,
+            "sparse_unique": 0.0,
+            "gap": 0.312,
+            "combined": {
+              "dense": 1.0,
+              "bm42": 0.12150000000000001,
+              "hybrid": 0.6879735606908799
+            }
+          },
+          {
+            "qid": "36",
+            "sparse_on": false,
+            "route": "dense",
+            "kind": "dense",
+            "params": {},
+            "ov10": 0.0,
+            "ov20": 0.0,
+            "d_margin": 1.0,
+            "s_margin": 0.0,
+            "sparse_unique": 0.0,
+            "gap": 0.3078,
+            "combined": {
+              "dense": 0.7345,
+              "bm42": 0.26550000000000007,
+              "hybrid": 0.4266524875164032
+            }
+          },
+          {
+            "qid": "42",
+            "sparse_on": false,
+            "route": "bm42",
+            "kind": "dense",
+            "params": {},
+            "ov10": 0.0,
+            "ov20": 0.0,
+            "d_margin": 1.0,
+            "s_margin": 0.0,
+            "sparse_unique": 0.0,
+            "gap": 0.283,
+            "combined": {
+              "dense": 0.2025,
+              "bm42": 0.7135,
+              "hybrid": 0.43049806147813796
+            }
+          },
+          {
+            "qid": "48",
+            "sparse_on": false,
+            "route": "dense",
+            "kind": "dense",
+            "params": {},
+            "ov10": 0.0,
+            "ov20": 0.0,
+            "d_margin": 1.0,
+            "s_margin": 0.0,
+            "sparse_unique": 0.0,
+            "gap": 0.1799,
+            "combined": {
+              "dense": 0.9413589596748353,
+              "bm42": 0.7615000000000001,
+              "hybrid": 0.29250000000000004
+            }
+          },
+          {
+            "qid": "49",
+            "sparse_on": false,
+            "route": "dense",
+            "kind": "dense",
+            "params": {},
+            "ov10": 0.0,
+            "ov20": 0.0,
+            "d_margin": 1.0,
+            "s_margin": 0.0,
+            "sparse_unique": 0.0,
+            "gap": 0.0944,
+            "combined": {
+              "dense": 0.7300000000000001,
+              "bm42": 0.6355927437543869,
+              "hybrid": 0.2025
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "full_pipeline_ce_head",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.6938,
+        "ndcg@100": 0.7272,
+        "recall@10": 0.8239,
+        "recall@100": 0.9693,
+        "precision@10": 0.0927,
+        "mrr@10": 0.6612,
+        "map@100": 0.6551
+      },
+      "latency_ms": {
+        "mean": 143.98,
+        "p50": 142.85,
+        "p95": 163.36,
+        "note": "includes CE predict time"
+      },
+      "extra": {
+        "reranker": "cross-encoder/ms-marco-MiniLM-L-6-v2",
+        "head": 50
+      }
+    }
+  ],
+  "winner": "list_scorer_alpha_always_sparse"
+}

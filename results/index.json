@@ -1,0 +1,132 @@
+{
+  "n_docs": 5183,
+  "n_eval_queries": 300,
+  "n_qrels": 300,
+  "index_seconds": {
+    "scifact_dense": 3.216,
+    "scifact_bm42": 0.506,
+    "scifact_dense_dot": 3.233,
+    "scifact_dense_euclid": 3.195,
+    "scifact_bm42_no_idf": 0.499,
+    "scifact_dense_scalar": 3.234,
+    "scifact_dense_binary": 3.242,
+    "scifact_dense_pq": 4.013
+  },
+  "resources": {
+    "scifact_dense": {
+      "points_count": 5183,
+      "indexed_vectors_count": 5152,
+      "status": "green",
+      "segments_count": 7,
+      "disk_bytes": 51142656,
+      "raw": {
+        "points_count": 5183,
+        "indexed_vectors_count": 5152,
+        "status": "green",
+        "optimizer_status": "ok"
+      },
+      "disk_mb": 48.773
+    },
+    "scifact_bm42": {
+      "points_count": 5183,
+      "indexed_vectors_count": 5183,
+      "status": "green",
+      "segments_count": 8,
+      "disk_bytes": 6303744,
+      "raw": {
+        "points_count": 5183,
+        "indexed_vectors_count": 5183,
+        "status": "green",
+        "optimizer_status": "ok"
+      },
+      "disk_mb": 6.012
+    },
+    "scifact_dense_dot": {
+      "points_count": 5183,
+      "indexed_vectors_count": 5183,
+      "status": "green",
+      "segments_count": 8,
+      "disk_bytes": 51216384,
+      "raw": {
+        "points_count": 5183,
+        "indexed_vectors_count": 5183,
+        "status": "green",
+        "optimizer_status": "ok"
+      },
+      "disk_mb": 48.844
+    },
+    "scifact_dense_euclid": {
+      "points_count": 5183,
+      "indexed_vectors_count": 5183,
+      "status": "green",
+      "segments_count": 7,
+      "disk_bytes": 51130368,
+      "raw": {
+        "points_count": 5183,
+        "indexed_vectors_count": 5183,
+        "status": "green",
+        "optimizer_status": "ok"
+      },
+      "disk_mb": 48.762
+    },
+    "scifact_bm42_no_idf": {
+      "points_count": 5183,
+      "indexed_vectors_count": 5183,
+      "status": "green",
+      "segments_count": 8,
+      "disk_bytes": 6303744,
+      "raw": {
+        "points_count": 5183,
+        "indexed_vectors_count": 5183,
+        "status": "green",
+        "optimizer_status": "ok"
+      },
+      "disk_mb": 6.012
+    },
+    "scifact_dense_scalar": {
+      "points_count": 5183,
+      "indexed_vectors_count": 5183,
+      "status": "green",
+      "segments_count": 7,
+      "disk_bytes": 55181312,
+      "raw": {
+        "points_count": 5183,
+        "indexed_vectors_count": 5183,
+        "status": "green",
+        "optimizer_status": "ok"
+      },
+      "disk_mb": 52.625
+    },
+    "scifact_dense_binary": {
+      "points_count": 5183,
+      "indexed_vectors_count": 5120,
+      "status": "green",
+      "segments_count": 7,
+      "disk_bytes": 51748864,
+      "raw": {
+        "points_count": 5183,
+        "indexed_vectors_count": 5120,
+        "status": "green",
+        "optimizer_status": "ok"
+      },
+      "disk_mb": 49.352
+    },
+    "scifact_dense_pq": {
+      "points_count": 5183,
+      "indexed_vectors_count": 5120,
+      "status": "green",
+      "segments_count": 8,
+      "disk_bytes": 68939776,
+      "raw": {
+        "points_count": 5183,
+        "indexed_vectors_count": 5120,
+        "status": "green",
+        "optimizer_status": "ok"
+      },
+      "disk_mb": 65.746
+    }
+  },
+  "dense_model": "BAAI/bge-base-en-v1.5",
+  "sparse_model": "Qdrant/bm42-all-minilm-l6-v2-attentions",
+  "qdrant_version": "1.18.1"
+}

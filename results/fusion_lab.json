@@ -1,0 +1,473 @@
+{
+  "dataset": "scifact",
+  "protocol": "Tune on SciFact train (809 queries), freeze, evaluate on test (300). Same hybrid collection lists (dense named vector + BM42 IDF), k=100, ignore_identical_ids.",
+  "n_train": 809,
+  "n_test": 300,
+  "theory": {
+    "incommensurable": "Cosine is bounded similarity; BM42 is an unbounded IDF-weighted sum. Raw addition is meaningless; each channel is mapped to a utility in [0,1] or to a rank kernel 1/(\u03ba+r).",
+    "operators": "Convex mix = interchangeable utilities. CombMNZ / product / noisy-OR reward agreement (two independent likelihoods). ISR 1/r^2 concentrates on the head. A query gate moves the dense prior using top-1/top-2 margin, lexical BM42-ness, and top-10 overlap.",
+    "logistic": "P(rel|d) \u2248 \u03c3(w\u00b7\u03c6) with \u03c6 = (minmax, RRF, overlap, product, log-rank, ISR) fit by weighted logistic regression on train candidates in the union of lists."
+  },
+  "train_top": [
+    {
+      "name": "minmax_linear(a=0.8)",
+      "kind": "minmax_linear",
+      "params": {
+        "a": 0.8
+      },
+      "train_ndcg@10": 0.779
+    },
+    {
+      "name": "z_linear(a=0.8)",
+      "kind": "z_linear",
+      "params": {
+        "a": 0.8
+      },
+      "train_ndcg@10": 0.779
+    },
+    {
+      "name": "rank_score(a=0.8,mix=0.55,kappa=60)",
+      "kind": "rank_score",
+      "params": {
+        "a": 0.8,
+        "mix": 0.55,
+        "kappa": 60
+      },
+      "train_ndcg@10": 0.779
+    },
+    {
+      "name": "rank_score(a=0.8,mix=0.75,kappa=20)",
+      "kind": "rank_score",
+      "params": {
+        "a": 0.8,
+        "mix": 0.75,
+        "kappa": 20
+      },
+      "train_ndcg@10": 0.779
+    },
+    {
+      "name": "rank_score(a=0.75,mix=0.75,kappa=20)",
+      "kind": "rank_score",
+      "params": {
+        "a": 0.75,
+        "mix": 0.75,
+        "kappa": 20
+      },
+      "train_ndcg@10": 0.7786
+    },
+    {
+      "name": "power_mean(a=0.85,power=2.0)",
+      "kind": "power_mean",
+      "params": {
+        "a": 0.85,
+        "power": 2.0
+      },
+      "train_ndcg@10": 0.7786
+    },
+    {
+      "name": "minmax_linear(a=0.75)",
+      "kind": "minmax_linear",
+      "params": {
+        "a": 0.75
+      },
+      "train_ndcg@10": 0.7784
+    },
+    {
+      "name": "z_linear(a=0.75)",
+      "kind": "z_linear",
+      "params": {
+        "a": 0.75
+      },
+      "train_ndcg@10": 0.7784
+    },
+    {
+      "name": "rank_score(a=0.75,mix=0.55,kappa=60)",
+      "kind": "rank_score",
+      "params": {
+        "a": 0.75,
+        "mix": 0.55,
+        "kappa": 60
+      },
+      "train_ndcg@10": 0.7784
+    },
+    {
+      "name": "power_mean(a=0.75,power=2.0)",
+      "kind": "power_mean",
+      "params": {
+        "a": 0.75,
+        "power": 2.0
+      },
+      "train_ndcg@10": 0.7783
+    },
+    {
+      "name": "power_mean(a=0.8,power=2.0)",
+      "kind": "power_mean",
+      "params": {
+        "a": 0.8,
+        "power": 2.0
+      },
+      "train_ndcg@10": 0.7781
+    },
+    {
+      "name": "power_mean(a=0.7,power=2.0)",
+      "kind": "power_mean",
+      "params": {
+        "a": 0.7,
+        "power": 2.0
+      },
+      "train_ndcg@10": 0.7777
+    },
+    {
+      "name": "minmax_linear(a=0.85)",
+      "kind": "minmax_linear",
+      "params": {
+        "a": 0.85
+      },
+      "train_ndcg@10": 0.7776
+    },
+    {
+      "name": "z_linear(a=0.85)",
+      "kind": "z_linear",
+      "params": {
+        "a": 0.85
+      },
+      "train_ndcg@10": 0.7776
+    },
+    {
+      "name": "rank_score(a=0.85,mix=0.55,kappa=60)",
+      "kind": "rank_score",
+      "params": {
+        "a": 0.85,
+        "mix": 0.55,
+        "kappa": 60
+      },
+      "train_ndcg@10": 0.7776
+    }
+  ],
+  "best_gate_train": {
+    "w_margin": 0.8,
+    "w_lex": 0.0,
+    "w_ov": 0.0,
+    "train_ndcg@10": 0.7767
+  },
+  "best_switch_train": {
+    "tau": 0.02,
+    "a": 0.75,
+    "train_ndcg@10": 0.7751
+  },
+  "logistic_train_ndcg@10": 0.7739,
+  "test_runs": [
+    {
+      "name": "trainbest_rank_score(a=0.8,mix=0.75,kappa=20)",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.7527,
+        "ndcg@100": 0.77,
+        "recall@10": 0.8892,
+        "recall@100": 0.9693,
+        "precision@10": 0.1003,
+        "mrr@10": 0.7162,
+        "map@100": 0.7081
+      },
+      "extra": {
+        "selected_on": "scifact_train",
+        "name": "rank_score(a=0.8,mix=0.75,kappa=20)",
+        "kind": "rank_score",
+        "params": {
+          "a": 0.8,
+          "mix": 0.75,
+          "kappa": 20
+        },
+        "train_ndcg@10": 0.779
+      }
+    },
+    {
+      "name": "trainbest_minmax_linear(a=0.8)",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.7526,
+        "ndcg@100": 0.77,
+        "recall@10": 0.8892,
+        "recall@100": 0.9693,
+        "precision@10": 0.1003,
+        "mrr@10": 0.7162,
+        "map@100": 0.7079
+      },
+      "extra": {
+        "selected_on": "scifact_train",
+        "name": "minmax_linear(a=0.8)",
+        "kind": "minmax_linear",
+        "params": {
+          "a": 0.8
+        },
+        "train_ndcg@10": 0.779
+      }
+    },
+    {
+      "name": "trainbest_z_linear(a=0.8)",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.7526,
+        "ndcg@100": 0.77,
+        "recall@10": 0.8892,
+        "recall@100": 0.9693,
+        "precision@10": 0.1003,
+        "mrr@10": 0.7162,
+        "map@100": 0.7079
+      },
+      "extra": {
+        "selected_on": "scifact_train",
+        "name": "z_linear(a=0.8)",
+        "kind": "z_linear",
+        "params": {
+          "a": 0.8
+        },
+        "train_ndcg@10": 0.779
+      }
+    },
+    {
+      "name": "trainbest_rank_score(a=0.8,mix=0.55,kappa=60)",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.7526,
+        "ndcg@100": 0.7699,
+        "recall@10": 0.8892,
+        "recall@100": 0.9693,
+        "precision@10": 0.1003,
+        "mrr@10": 0.7162,
+        "map@100": 0.7078
+      },
+      "extra": {
+        "selected_on": "scifact_train",
+        "name": "rank_score(a=0.8,mix=0.55,kappa=60)",
+        "kind": "rank_score",
+        "params": {
+          "a": 0.8,
+          "mix": 0.55,
+          "kappa": 60
+        },
+        "train_ndcg@10": 0.779
+      }
+    },
+    {
+      "name": "trainbest_rank_score(a=0.75,mix=0.75,kappa=20)",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.7512,
+        "ndcg@100": 0.7683,
+        "recall@10": 0.8892,
+        "recall@100": 0.966,
+        "precision@10": 0.1003,
+        "mrr@10": 0.7149,
+        "map@100": 0.7058
+      },
+      "extra": {
+        "selected_on": "scifact_train",
+        "name": "rank_score(a=0.75,mix=0.75,kappa=20)",
+        "kind": "rank_score",
+        "params": {
+          "a": 0.75,
+          "mix": 0.75,
+          "kappa": 20
+        },
+        "train_ndcg@10": 0.7786
+      }
+    },
+    {
+      "name": "trainbest_minmax_linear(a=0.75)",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.7512,
+        "ndcg@100": 0.7688,
+        "recall@10": 0.8892,
+        "recall@100": 0.9693,
+        "precision@10": 0.1003,
+        "mrr@10": 0.7149,
+        "map@100": 0.7058
+      },
+      "extra": {
+        "selected_on": "scifact_train",
+        "name": "minmax_linear(a=0.75)",
+        "kind": "minmax_linear",
+        "params": {
+          "a": 0.75
+        },
+        "train_ndcg@10": 0.7784
+      }
+    },
+    {
+      "name": "trainbest_z_linear(a=0.75)",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.7512,
+        "ndcg@100": 0.7688,
+        "recall@10": 0.8892,
+        "recall@100": 0.9693,
+        "precision@10": 0.1003,
+        "mrr@10": 0.7149,
+        "map@100": 0.7058
+      },
+      "extra": {
+        "selected_on": "scifact_train",
+        "name": "z_linear(a=0.75)",
+        "kind": "z_linear",
+        "params": {
+          "a": 0.75
+        },
+        "train_ndcg@10": 0.7784
+      }
+    },
+    {
+      "name": "gated_overlap",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.7491,
+        "ndcg@100": 0.7674,
+        "recall@10": 0.8876,
+        "recall@100": 0.9693,
+        "precision@10": 0.1,
+        "mrr@10": 0.7133,
+        "map@100": 0.704
+      },
+      "extra": {
+        "selected_on": "scifact_train",
+        "w_margin": 0.8,
+        "w_lex": 0.0,
+        "w_ov": 0.0,
+        "train_ndcg@10": 0.7767
+      }
+    },
+    {
+      "name": "trainbest_power_mean(a=0.85,power=2.0)",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.7472,
+        "ndcg@100": 0.7653,
+        "recall@10": 0.8826,
+        "recall@100": 0.9627,
+        "precision@10": 0.0997,
+        "mrr@10": 0.7108,
+        "map@100": 0.7033
+      },
+      "extra": {
+        "selected_on": "scifact_train",
+        "name": "power_mean(a=0.85,power=2.0)",
+        "kind": "power_mean",
+        "params": {
+          "a": 0.85,
+          "power": 2.0
+        },
+        "train_ndcg@10": 0.7786
+      }
+    },
+    {
+      "name": "logistic_evidence",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.7452,
+        "ndcg@100": 0.7626,
+        "recall@10": 0.8909,
+        "recall@100": 0.966,
+        "precision@10": 0.1003,
+        "mrr@10": 0.7059,
+        "map@100": 0.6985
+      },
+      "extra": {
+        "selected_on": "scifact_train",
+        "train_ndcg@10": 0.7739,
+        "weights": [
+          0.1329,
+          0.3863,
+          0.2377,
+          0.0041,
+          0.0029,
+          0.2735,
+          0.2549,
+          -0.876,
+          -0.3253,
+          0.2702,
+          0.1674
+        ],
+        "fit_seconds": 8.87,
+        "features": [
+          "bias",
+          "minmax_dense",
+          "minmax_sparse",
+          "rrf_dense",
+          "rrf_sparse",
+          "in_both",
+          "product",
+          "log_rank_d",
+          "log_rank_s",
+          "isr_d",
+          "isr_s"
+        ]
+      }
+    },
+    {
+      "name": "dense",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.7421,
+        "ndcg@100": 0.7625,
+        "recall@10": 0.8709,
+        "recall@100": 0.961,
+        "precision@10": 0.0983,
+        "mrr@10": 0.7069,
+        "map@100": 0.7009
+      },
+      "extra": {}
+    },
+    {
+      "name": "margin_switch",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.7413,
+        "ndcg@100": 0.7625,
+        "recall@10": 0.8709,
+        "recall@100": 0.9643,
+        "precision@10": 0.0983,
+        "mrr@10": 0.7057,
+        "map@100": 0.7002
+      },
+      "extra": {
+        "selected_on": "scifact_train",
+        "tau": 0.02,
+        "a": 0.75,
+        "train_ndcg@10": 0.7751
+      }
+    },
+    {
+      "name": "rrf_equal_k60",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.7068,
+        "ndcg@100": 0.7333,
+        "recall@10": 0.8527,
+        "recall@100": 0.9627,
+        "precision@10": 0.0953,
+        "mrr@10": 0.6698,
+        "map@100": 0.6624
+      },
+      "extra": {}
+    },
+    {
+      "name": "bm42",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.6118,
+        "ndcg@100": 0.6412,
+        "recall@10": 0.7411,
+        "recall@100": 0.8777,
+        "precision@10": 0.0827,
+        "mrr@10": 0.5767,
+        "map@100": 0.5718
+      },
+      "extra": {}
+    }
+  ],
+  "oracle_minmax_alpha_ndcg@10": 0.8033,
+  "beats_dense": true,
+  "beats_rrf": true,
+  "winner": "trainbest_rank_score(a=0.8,mix=0.75,kappa=20)"
+}

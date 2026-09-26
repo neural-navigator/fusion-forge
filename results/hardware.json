@@ -1,0 +1,9 @@
+{
+  "cpu_threads": "20",
+  "memory_free_h": "Mem:            15Gi       6.8Gi       636Mi       902Mi       9.1Gi       8.5Gi",
+  "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU, 8188 MiB, 1986 MiB",
+  "qdrant_container_mem": "667.3MiB / 15.25GiB",
+  "qdrant_storage_du": "6.3G\t/home/fat-buffalo/Desktop/Workspace/vector-db-explore/qdrant_storage",
+  "qdrant_version": "1.18.1",
+  "note": "After protocol fixes: ignore_identical_ids, allocated disk, prefetch=k, CE keeps 100 hits."
+}

@@ -1,0 +1,110 @@
+{
+  "runs": [
+    {
+      "name": "rank_hybrid_rrf",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.7254,
+        "ndcg@100": 0.744,
+        "recall@10": 0.8836,
+        "recall@100": 0.966,
+        "precision@10": 0.0993,
+        "mrr@10": 0.6818,
+        "map@100": 0.6742
+      },
+      "latency_ms": {
+        "mean": 8.56,
+        "p50": 8.34,
+        "p95": 10.6
+      },
+      "extra": {
+        "method": "Qdrant Fusion.RRF"
+      }
+    },
+    {
+      "name": "rank_hybrid_dbsf",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.7207,
+        "ndcg@100": 0.7436,
+        "recall@10": 0.8669,
+        "recall@100": 0.966,
+        "precision@10": 0.0977,
+        "mrr@10": 0.6797,
+        "map@100": 0.675
+      },
+      "latency_ms": {
+        "mean": 8.41,
+        "p50": 8.32,
+        "p95": 9.88
+      },
+      "extra": {
+        "method": "Qdrant Fusion.DBSF"
+      }
+    },
+    {
+      "name": "rank_client_rrf_k60",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.6995,
+        "ndcg@100": 0.7301,
+        "recall@10": 0.8327,
+        "recall@100": 0.9627,
+        "precision@10": 0.0933,
+        "mrr@10": 0.6662,
+        "map@100": 0.6594
+      },
+      "latency_ms": {
+        "mean": 13.24,
+        "p50": 13.09,
+        "p95": 15.33
+      },
+      "extra": {
+        "method": "client RRF k=60 of dense+BM42"
+      }
+    },
+    {
+      "name": "rank_ce_rerank_top50",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.6925,
+        "ndcg@100": 0.7255,
+        "recall@10": 0.8206,
+        "recall@100": 0.966,
+        "precision@10": 0.0923,
+        "mrr@10": 0.6603,
+        "map@100": 0.6542
+      },
+      "latency_ms": {
+        "mean": 151.36,
+        "p50": 150.08,
+        "p95": 171.76
+      },
+      "extra": {
+        "method": "hybrid RRF top-100, CE rerank first 50"
+      }
+    },
+    {
+      "name": "rank_title_overlap_boost",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.7173,
+        "ndcg@100": 0.7393,
+        "recall@10": 0.8677,
+        "recall@100": 0.966,
+        "precision@10": 0.0977,
+        "mrr@10": 0.6746,
+        "map@100": 0.6695
+      },
+      "latency_ms": {
+        "mean": 8.77,
+        "p50": 8.72,
+        "p95": 10.12
+      },
+      "extra": {
+        "method": "RRF + title term overlap"
+      }
+    }
+  ],
+  "recommendation": "On SciFact, a MS MARCO MiniLM cross-encoder did not beat first-stage ranking (domain mismatch). Prefer dense BGE or dense-heavy weighted fusion (0.7/0.3). Use Qdrant RRF/DBSF when you need sparse recall; skip generic CE rerank unless the reranker is trained on the same domain."
+}

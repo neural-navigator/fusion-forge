@@ -1,0 +1,7 @@
+qdrant-client>=1.15.0
+fastembed>=0.5.0
+numpy
+tqdm
+reportlab
+sentence-transformers
+requests

@@ -1,0 +1,393 @@
+{
+  "sizes": {
+    "scifact_dense": {
+      "points_count": 5183,
+      "indexed_vectors_count": 5183,
+      "status": "green",
+      "segments_count": 7,
+      "quantization_config": null,
+      "du_bytes": 518465354,
+      "du_mb": 494.447,
+      "rglob_bytes": 518465354,
+      "rglob_mb": 494.447
+    },
+    "scifact_dense_scalar": {
+      "points_count": 5183,
+      "indexed_vectors_count": 5183,
+      "status": "green",
+      "segments_count": 8,
+      "quantization_config": {
+        "scalar": {
+          "type": "int8",
+          "quantile": 0.99,
+          "always_ram": true,
+          "memory": null
+        }
+      },
+      "du_bytes": 591704933,
+      "du_mb": 564.294,
+      "rglob_bytes": 591704933,
+      "rglob_mb": 564.294
+    },
+    "scifact_dense_binary": {
+      "points_count": 5183,
+      "indexed_vectors_count": 5183,
+      "status": "green",
+      "segments_count": 8,
+      "quantization_config": {
+        "binary": {
+          "always_ram": true,
+          "memory": null,
+          "encoding": null,
+          "query_encoding": null
+        }
+      },
+      "du_bytes": 588219509,
+      "du_mb": 560.97,
+      "rglob_bytes": 588219509,
+      "rglob_mb": 560.97
+    },
+    "scifact_dense_pq": {
+      "points_count": 5183,
+      "indexed_vectors_count": 5183,
+      "status": "green",
+      "segments_count": 7,
+      "quantization_config": {
+        "product": {
+          "compression": "x16",
+          "always_ram": true,
+          "memory": null
+        }
+      },
+      "du_bytes": 534100048,
+      "du_mb": 509.357,
+      "rglob_bytes": 534100048,
+      "rglob_mb": 509.357
+    }
+  },
+  "runs": [
+    {
+      "name": "full_fp32",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.7445,
+        "ndcg@100": 0.7664,
+        "recall@10": 0.8676,
+        "recall@100": 0.9643,
+        "precision@10": 0.098,
+        "mrr@10": 0.7125,
+        "map@100": 0.7057
+      },
+      "latency_ms": {
+        "mean": 7.99,
+        "p50": 7.46,
+        "p95": 11.79
+      },
+      "extra": {
+        "collection": "scifact_dense",
+        "rescore": null,
+        "points_count": 5183,
+        "indexed_vectors_count": 5183,
+        "status": "green",
+        "segments_count": 7,
+        "quantization_config": null,
+        "du_bytes": 518465354,
+        "du_mb": 494.447,
+        "rglob_bytes": 518465354,
+        "rglob_mb": 494.447
+      }
+    },
+    {
+      "name": "scalar_int8_rescore",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.7445,
+        "ndcg@100": 0.7664,
+        "recall@10": 0.8676,
+        "recall@100": 0.9643,
+        "precision@10": 0.098,
+        "mrr@10": 0.7125,
+        "map@100": 0.7057
+      },
+      "latency_ms": {
+        "mean": 7.14,
+        "p50": 6.83,
+        "p95": 9.72
+      },
+      "extra": {
+        "collection": "scifact_dense_scalar",
+        "rescore": true,
+        "points_count": 5183,
+        "indexed_vectors_count": 5183,
+        "status": "green",
+        "segments_count": 8,
+        "quantization_config": {
+          "scalar": {
+            "type": "int8",
+            "quantile": 0.99,
+            "always_ram": true,
+            "memory": null
+          }
+        },
+        "du_bytes": 591704933,
+        "du_mb": 564.294,
+        "rglob_bytes": 591704933,
+        "rglob_mb": 564.294
+      }
+    },
+    {
+      "name": "scalar_int8_no_rescore",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.7429,
+        "ndcg@100": 0.7666,
+        "recall@10": 0.8609,
+        "recall@100": 0.965,
+        "precision@10": 0.0973,
+        "mrr@10": 0.7125,
+        "map@100": 0.7058
+      },
+      "latency_ms": {
+        "mean": 6.59,
+        "p50": 6.49,
+        "p95": 7.82
+      },
+      "extra": {
+        "collection": "scifact_dense_scalar",
+        "rescore": false,
+        "points_count": 5183,
+        "indexed_vectors_count": 5183,
+        "status": "green",
+        "segments_count": 8,
+        "quantization_config": {
+          "scalar": {
+            "type": "int8",
+            "quantile": 0.99,
+            "always_ram": true,
+            "memory": null
+          }
+        },
+        "du_bytes": 591704933,
+        "du_mb": 564.294,
+        "rglob_bytes": 591704933,
+        "rglob_mb": 564.294
+      }
+    },
+    {
+      "name": "binary_rescore",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.7445,
+        "ndcg@100": 0.7665,
+        "recall@10": 0.8676,
+        "recall@100": 0.9643,
+        "precision@10": 0.098,
+        "mrr@10": 0.7125,
+        "map@100": 0.7057
+      },
+      "latency_ms": {
+        "mean": 7.24,
+        "p50": 6.96,
+        "p95": 9.64
+      },
+      "extra": {
+        "collection": "scifact_dense_binary",
+        "rescore": true,
+        "points_count": 5183,
+        "indexed_vectors_count": 5183,
+        "status": "green",
+        "segments_count": 8,
+        "quantization_config": {
+          "binary": {
+            "always_ram": true,
+            "memory": null,
+            "encoding": null,
+            "query_encoding": null
+          }
+        },
+        "du_bytes": 588219509,
+        "du_mb": 560.97,
+        "rglob_bytes": 588219509,
+        "rglob_mb": 560.97
+      }
+    },
+    {
+      "name": "binary_no_rescore",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.661,
+        "ndcg@100": 0.6933,
+        "recall@10": 0.7818,
+        "recall@100": 0.926,
+        "precision@10": 0.0883,
+        "mrr@10": 0.6284,
+        "map@100": 0.6245
+      },
+      "latency_ms": {
+        "mean": 6.48,
+        "p50": 6.43,
+        "p95": 7.65
+      },
+      "extra": {
+        "collection": "scifact_dense_binary",
+        "rescore": false,
+        "points_count": 5183,
+        "indexed_vectors_count": 5183,
+        "status": "green",
+        "segments_count": 8,
+        "quantization_config": {
+          "binary": {
+            "always_ram": true,
+            "memory": null,
+            "encoding": null,
+            "query_encoding": null
+          }
+        },
+        "du_bytes": 588219509,
+        "du_mb": 560.97,
+        "rglob_bytes": 588219509,
+        "rglob_mb": 560.97
+      }
+    },
+    {
+      "name": "pq_x16_rescore",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.7445,
+        "ndcg@100": 0.7664,
+        "recall@10": 0.8676,
+        "recall@100": 0.9643,
+        "precision@10": 0.098,
+        "mrr@10": 0.7125,
+        "map@100": 0.7057
+      },
+      "latency_ms": {
+        "mean": 7.72,
+        "p50": 7.51,
+        "p95": 9.79
+      },
+      "extra": {
+        "collection": "scifact_dense_pq",
+        "rescore": true,
+        "points_count": 5183,
+        "indexed_vectors_count": 5183,
+        "status": "green",
+        "segments_count": 7,
+        "quantization_config": {
+          "product": {
+            "compression": "x16",
+            "always_ram": true,
+            "memory": null
+          }
+        },
+        "du_bytes": 534100048,
+        "du_mb": 509.357,
+        "rglob_bytes": 534100048,
+        "rglob_mb": 509.357
+      }
+    },
+    {
+      "name": "pq_x16_no_rescore",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.7474,
+        "ndcg@100": 0.7712,
+        "recall@10": 0.8601,
+        "recall@100": 0.9643,
+        "precision@10": 0.097,
+        "mrr@10": 0.719,
+        "map@100": 0.7121
+      },
+      "latency_ms": {
+        "mean": 7.15,
+        "p50": 7.08,
+        "p95": 8.5
+      },
+      "extra": {
+        "collection": "scifact_dense_pq",
+        "rescore": false,
+        "points_count": 5183,
+        "indexed_vectors_count": 5183,
+        "status": "green",
+        "segments_count": 7,
+        "quantization_config": {
+          "product": {
+            "compression": "x16",
+            "always_ram": true,
+            "memory": null
+          }
+        },
+        "du_bytes": 534100048,
+        "du_mb": 509.357,
+        "rglob_bytes": 534100048,
+        "rglob_mb": 509.357
+      }
+    }
+  ],
+  "comparison": [
+    {
+      "name": "full_fp32",
+      "old_ndcg@10": 0.7421,
+      "new_ndcg@10": 0.7445,
+      "ndcg_delta": 0.0024,
+      "old_disk_mb": 592.471,
+      "new_du_mb": 494.447,
+      "new_rglob_mb": 494.447
+    },
+    {
+      "name": "scalar_int8_rescore",
+      "old_ndcg@10": 0.7421,
+      "new_ndcg@10": 0.7445,
+      "ndcg_delta": 0.0024,
+      "old_disk_mb": 596.242,
+      "new_du_mb": 564.294,
+      "new_rglob_mb": 564.294
+    },
+    {
+      "name": "scalar_int8_no_rescore",
+      "old_ndcg@10": 0.7444,
+      "new_ndcg@10": 0.7429,
+      "ndcg_delta": -0.0015,
+      "old_disk_mb": 596.242,
+      "new_du_mb": 564.294,
+      "new_rglob_mb": 564.294
+    },
+    {
+      "name": "binary_rescore",
+      "old_ndcg@10": 0.7421,
+      "new_ndcg@10": 0.7445,
+      "ndcg_delta": 0.0024,
+      "old_disk_mb": 494.941,
+      "new_du_mb": 560.97,
+      "new_rglob_mb": 560.97
+    },
+    {
+      "name": "binary_no_rescore",
+      "old_ndcg@10": 0.6633,
+      "new_ndcg@10": 0.661,
+      "ndcg_delta": -0.0023,
+      "old_disk_mb": 494.941,
+      "new_du_mb": 560.97,
+      "new_rglob_mb": 560.97
+    },
+    {
+      "name": "pq_x16_rescore",
+      "old_ndcg@10": 0.7421,
+      "new_ndcg@10": 0.7445,
+      "ndcg_delta": 0.0024,
+      "old_disk_mb": 609.7,
+      "new_du_mb": 509.357,
+      "new_rglob_mb": 509.357
+    },
+    {
+      "name": "pq_x16_no_rescore",
+      "old_ndcg@10": 0.7441,
+      "new_ndcg@10": 0.7474,
+      "ndcg_delta": 0.0033,
+      "old_disk_mb": 609.7,
+      "new_du_mb": 509.357,
+      "new_rglob_mb": 509.357
+    }
+  ],
+  "fp32_vector_mb": 15.185
+}

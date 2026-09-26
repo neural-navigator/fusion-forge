@@ -1,0 +1,217 @@
+{
+  "runs": [
+    {
+      "name": "dense_cosine",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.7445,
+        "ndcg@100": 0.7664,
+        "recall@10": 0.8676,
+        "recall@100": 0.9643,
+        "precision@10": 0.098,
+        "mrr@10": 0.7125,
+        "map@100": 0.7057
+      },
+      "latency_ms": {
+        "mean": 7.84,
+        "p50": 7.38,
+        "p95": 11.78
+      },
+      "extra": {
+        "metric": "cosine"
+      }
+    },
+    {
+      "name": "dense_dot",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.7445,
+        "ndcg@100": 0.7664,
+        "recall@10": 0.8676,
+        "recall@100": 0.9643,
+        "precision@10": 0.098,
+        "mrr@10": 0.7125,
+        "map@100": 0.7057
+      },
+      "latency_ms": {
+        "mean": 7.59,
+        "p50": 7.29,
+        "p95": 10.03
+      },
+      "extra": {
+        "metric": "dot"
+      }
+    },
+    {
+      "name": "dense_euclid",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.7445,
+        "ndcg@100": 0.7664,
+        "recall@10": 0.8676,
+        "recall@100": 0.9643,
+        "precision@10": 0.098,
+        "mrr@10": 0.7125,
+        "map@100": 0.7057
+      },
+      "latency_ms": {
+        "mean": 7.66,
+        "p50": 7.3,
+        "p95": 9.65
+      },
+      "extra": {
+        "metric": "euclid"
+      }
+    },
+    {
+      "name": "bm42_idf",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.6118,
+        "ndcg@100": 0.6406,
+        "recall@10": 0.7411,
+        "recall@100": 0.8743,
+        "precision@10": 0.0827,
+        "mrr@10": 0.5767,
+        "map@100": 0.5717
+      },
+      "latency_ms": {
+        "mean": 2.21,
+        "p50": 2.22,
+        "p95": 2.74
+      },
+      "extra": {
+        "modifier": "IDF"
+      }
+    },
+    {
+      "name": "bm42_no_idf",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.6019,
+        "ndcg@100": 0.6328,
+        "recall@10": 0.7226,
+        "recall@100": 0.867,
+        "precision@10": 0.0807,
+        "mrr@10": 0.5682,
+        "map@100": 0.565
+      },
+      "latency_ms": {
+        "mean": 2.24,
+        "p50": 2.23,
+        "p95": 2.82
+      },
+      "extra": {
+        "modifier": "none"
+      }
+    },
+    {
+      "name": "hybrid_rrf",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.7279,
+        "ndcg@100": 0.746,
+        "recall@10": 0.8836,
+        "recall@100": 0.9627,
+        "precision@10": 0.0993,
+        "mrr@10": 0.6859,
+        "map@100": 0.6773
+      },
+      "latency_ms": {
+        "mean": 8.95,
+        "p50": 8.55,
+        "p95": 11.11
+      },
+      "extra": {
+        "fusion": "RRF"
+      }
+    },
+    {
+      "name": "hybrid_dbsf",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.7207,
+        "ndcg@100": 0.7436,
+        "recall@10": 0.8669,
+        "recall@100": 0.966,
+        "precision@10": 0.0977,
+        "mrr@10": 0.6797,
+        "map@100": 0.675
+      },
+      "latency_ms": {
+        "mean": 8.59,
+        "p50": 8.39,
+        "p95": 9.88
+      },
+      "extra": {
+        "fusion": "DBSF"
+      }
+    },
+    {
+      "name": "hybrid_weighted_0.7_0.3",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.7497,
+        "ndcg@100": 0.7675,
+        "recall@10": 0.8876,
+        "recall@100": 0.966,
+        "precision@10": 0.1,
+        "mrr@10": 0.714,
+        "map@100": 0.7048
+      },
+      "latency_ms": {
+        "mean": 13.09,
+        "p50": 13.08,
+        "p95": 14.77
+      },
+      "extra": {
+        "dense_w": 0.7,
+        "sparse_w": 0.3
+      }
+    },
+    {
+      "name": "hybrid_weighted_0.5_0.5",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.7263,
+        "ndcg@100": 0.7446,
+        "recall@10": 0.8819,
+        "recall@100": 0.9627,
+        "precision@10": 0.0993,
+        "mrr@10": 0.6821,
+        "map@100": 0.6762
+      },
+      "latency_ms": {
+        "mean": 13.46,
+        "p50": 13.31,
+        "p95": 15.41
+      },
+      "extra": {
+        "dense_w": 0.5,
+        "sparse_w": 0.5
+      }
+    },
+    {
+      "name": "hybrid_weighted_0.3_0.7",
+      "n_queries": 300,
+      "metrics": {
+        "ndcg@10": 0.6819,
+        "ndcg@100": 0.7125,
+        "recall@10": 0.8252,
+        "recall@100": 0.9627,
+        "precision@10": 0.093,
+        "mrr@10": 0.6416,
+        "map@100": 0.6384
+      },
+      "latency_ms": {
+        "mean": 13.28,
+        "p50": 13.25,
+        "p95": 15.06
+      },
+      "extra": {
+        "dense_w": 0.3,
+        "sparse_w": 0.7
+      }
+    }
+  ]
+}
